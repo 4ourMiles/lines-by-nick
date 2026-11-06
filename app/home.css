@@ -475,7 +475,7 @@ body:has(> .home) {
   stroke: var(--navy) !important;
 }
 
-.mark-layer--faces [style*="fill: #012340"] {
+.mark-layer--faces [style*="fill: #0f2b3e"] {
   display: none;
 }
 

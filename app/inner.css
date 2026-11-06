@@ -403,7 +403,7 @@
 .field input:user-invalid,
 .field textarea:user-invalid {
   border-color: var(--red);
-  box-shadow: 0 0 0 3px rgba(255, 3, 3, 0.18);
+  box-shadow: 0 0 0 3px rgba(235, 81, 83, 0.18);
 }
 
 .chips {

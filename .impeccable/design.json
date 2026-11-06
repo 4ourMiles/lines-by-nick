@@ -7,13 +7,13 @@
       "cyan": {
         "role": "primary",
         "displayName": "LbN Cyan",
-        "canonical": "#00dbff",
+        "canonical": "#4ea3b5",
         "tonalRamp": [
           "#002b33",
           "#005566",
           "#008099",
           "#00abcc",
-          "#00dbff",
+          "#4ea3b5",
           "#4de6ff",
           "#99f1ff",
           "#dff5fb"
@@ -22,13 +22,13 @@
       "red": {
         "role": "primary",
         "displayName": "Signal Red",
-        "canonical": "#ff0303",
+        "canonical": "#eb5153",
         "tonalRamp": [
           "#330000",
           "#660101",
           "#990202",
           "#d10000",
-          "#ff0303",
+          "#eb5153",
           "#ff4d4d",
           "#ff9999",
           "#ffe5e5"
@@ -37,16 +37,16 @@
       "navy": {
         "role": "neutral",
         "displayName": "Ink Navy",
-        "canonical": "#012340",
+        "canonical": "#0f2b3e",
         "tonalRamp": [
-          "#012340",
+          "#0f2b3e",
           "#0b3a5c",
           "#106587",
           "#1f85ad",
           "#279bcd",
           "#7cc5e3",
           "#c7dfe8",
-          "#f4fbfd"
+          "#cbd7dd"
         ]
       },
       "white": {
@@ -54,7 +54,7 @@
         "displayName": "White",
         "canonical": "#ffffff",
         "tonalRamp": [
-          "#f4fbfd",
+          "#cbd7dd",
           "#ffffff"
         ]
       }
@@ -80,22 +80,22 @@
     "shadows": [
       {
         "name": "ex-4",
-        "value": "1px 1px 0 #012340, 2px 2px 0 #012340, 3px 3px 0 #012340, 4px 4px 0 #012340",
+        "value": "1px 1px 0 #0f2b3e, 2px 2px 0 #0f2b3e, 3px 3px 0 #0f2b3e, 4px 4px 0 #0f2b3e",
         "purpose": "Tags and small controls."
       },
       {
         "name": "ex-8",
-        "value": "1px 1px 0 #012340, 2px 2px 0 #012340, 3px 3px 0 #012340, 4px 4px 0 #012340, 5px 5px 0 #012340, 6px 6px 0 #012340, 7px 7px 0 #012340, 8px 8px 0 #012340",
+        "value": "1px 1px 0 #0f2b3e, 2px 2px 0 #0f2b3e, 3px 3px 0 #0f2b3e, 4px 4px 0 #0f2b3e, 5px 5px 0 #0f2b3e, 6px 6px 0 #0f2b3e, 7px 7px 0 #0f2b3e, 8px 8px 0 #0f2b3e",
         "purpose": "Buttons, nav bar, visual sub-blocks."
       },
       {
         "name": "ex-14",
-        "value": "1px-stepped diagonal to 14px 14px 0 #012340",
+        "value": "1px-stepped diagonal to 14px 14px 0 #0f2b3e",
         "purpose": "Section slabs."
       },
       {
         "name": "ex-24",
-        "value": "1px-stepped diagonal to 24px 24px 0 #012340",
+        "value": "1px-stepped diagonal to 24px 24px 0 #0f2b3e",
         "purpose": "Hero stage and contact close."
       }
     ],
@@ -133,7 +133,7 @@
       "refersTo": "button-primary",
       "description": "The single red action.",
       "html": "<a class=\"ds-btn ds-btn-primary\" href=\"#\">Start a project</a>",
-      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:14px 26px;font:700 1.125rem/1 Rubik,Arial,sans-serif;letter-spacing:-0.01em;text-decoration:none;color:#012340;background:#fff;border:2px solid #012340;border-radius:14px;box-shadow:1px 1px 0 #012340,2px 2px 0 #012340,3px 3px 0 #012340,4px 4px 0 #012340,5px 5px 0 #012340,6px 6px 0 #012340,7px 7px 0 #012340,8px 8px 0 #012340;transition:transform .18s cubic-bezier(.16,1,.3,1),box-shadow .18s cubic-bezier(.16,1,.3,1),background-color .18s}.ds-btn:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 #012340,2px 2px 0 #012340,3px 3px 0 #012340,4px 4px 0 #012340,5px 5px 0 #012340,6px 6px 0 #012340}.ds-btn:active{transform:translate(8px,8px);box-shadow:none}.ds-btn:focus-visible{outline:3px solid #012340;outline-offset:4px}.ds-btn-primary{background:#ff0303;color:#fff}.ds-btn-primary:hover{background:#d10000}"
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:14px 26px;font:700 1.125rem/1 Rubik,Arial,sans-serif;letter-spacing:-0.01em;text-decoration:none;color:#0f2b3e;background:#fff;border:2px solid #0f2b3e;border-radius:14px;box-shadow:1px 1px 0 #0f2b3e,2px 2px 0 #0f2b3e,3px 3px 0 #0f2b3e,4px 4px 0 #0f2b3e,5px 5px 0 #0f2b3e,6px 6px 0 #0f2b3e,7px 7px 0 #0f2b3e,8px 8px 0 #0f2b3e;transition:transform .18s cubic-bezier(.16,1,.3,1),box-shadow .18s cubic-bezier(.16,1,.3,1),background-color .18s}.ds-btn:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 #0f2b3e,2px 2px 0 #0f2b3e,3px 3px 0 #0f2b3e,4px 4px 0 #0f2b3e,5px 5px 0 #0f2b3e,6px 6px 0 #0f2b3e}.ds-btn:active{transform:translate(8px,8px);box-shadow:none}.ds-btn:focus-visible{outline:3px solid #0f2b3e;outline-offset:4px}.ds-btn-primary{background:#eb5153;color:#fff}.ds-btn-primary:hover{background:#d10000}"
     },
     {
       "name": "Secondary Button",
@@ -141,7 +141,7 @@
       "refersTo": "button-secondary",
       "description": "White slab button.",
       "html": "<a class=\"ds-btn\" href=\"#\">See what we do</a>",
-      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:14px 26px;font:700 1.125rem/1 Rubik,Arial,sans-serif;text-decoration:none;color:#012340;background:#fff;border:2px solid #012340;border-radius:14px;box-shadow:1px 1px 0 #012340,2px 2px 0 #012340,3px 3px 0 #012340,4px 4px 0 #012340,5px 5px 0 #012340,6px 6px 0 #012340,7px 7px 0 #012340,8px 8px 0 #012340;transition:transform .18s,box-shadow .18s}.ds-btn:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 #012340,2px 2px 0 #012340,3px 3px 0 #012340,4px 4px 0 #012340,5px 5px 0 #012340,6px 6px 0 #012340}"
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:14px 26px;font:700 1.125rem/1 Rubik,Arial,sans-serif;text-decoration:none;color:#0f2b3e;background:#fff;border:2px solid #0f2b3e;border-radius:14px;box-shadow:1px 1px 0 #0f2b3e,2px 2px 0 #0f2b3e,3px 3px 0 #0f2b3e,4px 4px 0 #0f2b3e,5px 5px 0 #0f2b3e,6px 6px 0 #0f2b3e,7px 7px 0 #0f2b3e,8px 8px 0 #0f2b3e;transition:transform .18s,box-shadow .18s}.ds-btn:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 #0f2b3e,2px 2px 0 #0f2b3e,3px 3px 0 #0f2b3e,4px 4px 0 #0f2b3e,5px 5px 0 #0f2b3e,6px 6px 0 #0f2b3e}"
     },
     {
       "name": "Tag",
@@ -149,7 +149,7 @@
       "refersTo": "tag",
       "description": "Uppercase label on a small slab; toggles use aria-pressed.",
       "html": "<span class=\"ds-tag\">React Native</span> <button class=\"ds-tag ds-tag-on\" aria-pressed=\"true\">a website</button>",
-      "css": ".ds-tag{display:inline-flex;align-items:center;gap:8px;padding:9px 12px;background:#fff;color:#012340;border:2px solid #012340;border-radius:8px;box-shadow:1px 1px 0 #012340,2px 2px 0 #012340,3px 3px 0 #012340,4px 4px 0 #012340;font:700 .8125rem/1 Rubik,Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;cursor:default}.ds-tag-on{background:#00dbff;transform:translate(4px,4px);box-shadow:none}"
+      "css": ".ds-tag{display:inline-flex;align-items:center;gap:8px;padding:9px 12px;background:#fff;color:#0f2b3e;border:2px solid #0f2b3e;border-radius:8px;box-shadow:1px 1px 0 #0f2b3e,2px 2px 0 #0f2b3e,3px 3px 0 #0f2b3e,4px 4px 0 #0f2b3e;font:700 .8125rem/1 Rubik,Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;cursor:default}.ds-tag-on{background:#4ea3b5;transform:translate(4px,4px);box-shadow:none}"
     },
     {
       "name": "Slab",
@@ -157,7 +157,7 @@
       "refersTo": "slab",
       "description": "The structural container; white, cyan or navy face with a 14px navy side.",
       "html": "<div class=\"ds-slab\"><h3>Salesforce solutions</h3><p>Set up, clean up or extend Salesforce so your team actually uses it.</p></div>",
-      "css": ".ds-slab{background:#00dbff;color:#012340;border:2px solid #012340;border-radius:22px;padding:32px;box-shadow:1px 1px 0 #012340,2px 2px 0 #012340,3px 3px 0 #012340,4px 4px 0 #012340,5px 5px 0 #012340,6px 6px 0 #012340,7px 7px 0 #012340,8px 8px 0 #012340,9px 9px 0 #012340,10px 10px 0 #012340,11px 11px 0 #012340,12px 12px 0 #012340,13px 13px 0 #012340,14px 14px 0 #012340;font-family:Rubik,Arial,sans-serif}.ds-slab h3{margin:0 0 12px;font-weight:800;font-size:2rem;line-height:.98;letter-spacing:-.025em}.ds-slab p{margin:0;font-size:1.125rem;line-height:1.5}"
+      "css": ".ds-slab{background:#4ea3b5;color:#0f2b3e;border:2px solid #0f2b3e;border-radius:22px;padding:32px;box-shadow:1px 1px 0 #0f2b3e,2px 2px 0 #0f2b3e,3px 3px 0 #0f2b3e,4px 4px 0 #0f2b3e,5px 5px 0 #0f2b3e,6px 6px 0 #0f2b3e,7px 7px 0 #0f2b3e,8px 8px 0 #0f2b3e,9px 9px 0 #0f2b3e,10px 10px 0 #0f2b3e,11px 11px 0 #0f2b3e,12px 12px 0 #0f2b3e,13px 13px 0 #0f2b3e,14px 14px 0 #0f2b3e;font-family:Rubik,Arial,sans-serif}.ds-slab h3{margin:0 0 12px;font-weight:800;font-size:2rem;line-height:.98;letter-spacing:-.025em}.ds-slab p{margin:0;font-size:1.125rem;line-height:1.5}"
     },
     {
       "name": "Nav bar",
@@ -165,7 +165,7 @@
       "refersTo": "slab",
       "description": "Sticky white slab bar with wordmark, links and the primary action.",
       "html": "<nav class=\"ds-nav\"><span class=\"ds-nav-brand\">LBN Design</span><a href=\"#\">Services</a><a href=\"#\">Why LBN</a><a href=\"#\">Contact</a><a class=\"ds-nav-cta\" href=\"#\">Start a project</a></nav>",
-      "css": ".ds-nav{display:flex;align-items:center;gap:24px;padding:10px 12px 10px 16px;min-height:72px;background:#fff;border:2px solid #012340;border-radius:14px;box-shadow:1px 1px 0 #012340,2px 2px 0 #012340,3px 3px 0 #012340,4px 4px 0 #012340,5px 5px 0 #012340,6px 6px 0 #012340,7px 7px 0 #012340,8px 8px 0 #012340;font-family:Rubik,Arial,sans-serif;color:#012340}.ds-nav-brand{font-weight:800;font-size:1.25rem;letter-spacing:-.02em;margin-right:auto}.ds-nav a{color:inherit;text-decoration:none;font-weight:500;padding:6px 2px;border-bottom:3px solid transparent}.ds-nav a:hover{border-color:#00dbff}.ds-nav .ds-nav-cta{background:#ff0303;color:#fff;font-weight:700;padding:12px 22px;border:2px solid #012340;border-radius:14px;box-shadow:1px 1px 0 #012340,2px 2px 0 #012340,3px 3px 0 #012340,4px 4px 0 #012340,5px 5px 0 #012340,6px 6px 0 #012340,7px 7px 0 #012340,8px 8px 0 #012340}"
+      "css": ".ds-nav{display:flex;align-items:center;gap:24px;padding:10px 12px 10px 16px;min-height:72px;background:#fff;border:2px solid #0f2b3e;border-radius:14px;box-shadow:1px 1px 0 #0f2b3e,2px 2px 0 #0f2b3e,3px 3px 0 #0f2b3e,4px 4px 0 #0f2b3e,5px 5px 0 #0f2b3e,6px 6px 0 #0f2b3e,7px 7px 0 #0f2b3e,8px 8px 0 #0f2b3e;font-family:Rubik,Arial,sans-serif;color:#0f2b3e}.ds-nav-brand{font-weight:800;font-size:1.25rem;letter-spacing:-.02em;margin-right:auto}.ds-nav a{color:inherit;text-decoration:none;font-weight:500;padding:6px 2px;border-bottom:3px solid transparent}.ds-nav a:hover{border-color:#4ea3b5}.ds-nav .ds-nav-cta{background:#eb5153;color:#fff;font-weight:700;padding:12px 22px;border:2px solid #0f2b3e;border-radius:14px;box-shadow:1px 1px 0 #0f2b3e,2px 2px 0 #0f2b3e,3px 3px 0 #0f2b3e,4px 4px 0 #0f2b3e,5px 5px 0 #0f2b3e,6px 6px 0 #0f2b3e,7px 7px 0 #0f2b3e,8px 8px 0 #0f2b3e}"
     }
   ],
   "narrative": {

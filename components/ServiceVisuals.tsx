@@ -154,19 +154,19 @@ export function VisualBrand() {
         <div className="sheet__swatches">
           <span className="swatch" style={{ background: "var(--cyan)" }}>
             <b>Cyan</b>
-            <i>#00DBFF</i>
+            <i>#4EA3B5</i>
           </span>
           <span className="swatch" style={{ background: "var(--red)", color: "#fff" }}>
             <b>Red</b>
-            <i>#FF0303</i>
+            <i>#EB5153</i>
           </span>
           <span className="swatch" style={{ background: "var(--navy)", color: "#fff" }}>
             <b>Navy</b>
-            <i>#012340</i>
+            <i>#0F2B3E</i>
           </span>
           <span className="swatch" style={{ background: "var(--white)" }}>
             <b>White</b>
-            <i>#FFFFFF</i>
+            <i>#F2F2F2</i>
           </span>
         </div>
       </div>

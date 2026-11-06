@@ -1,18 +1,18 @@
 ---
 name: LBN Design
-description: The LbN lettermark's world at page scale, every surface a thick extruded slab in cyan, red, navy and white.
+description: The LbN lettermark's world at page scale, every surface a thick extruded slab in teal, coral, navy and off-white (muted palette, Nick, 2026-11-06).
 colors:
-  cyan: "#00dbff"
-  red: "#ff0303"
-  red-deep: "#d10000"
-  navy: "#012340"
-  navy-soft: "#106587"
-  cyan-deep: "#279bcd"
-  white: "#ffffff"
-  paper: "#f4fbfd"
-  cyan-mist: "#dff5fb"
-  cyan-line: "#c7dfe8"
-  cyan-haze: "#bfe9f4"
+  cyan: "#4ea3b5"
+  red: "#eb5153"
+  red-deep: "#c8383b"
+  navy: "#0f2b3e"
+  navy-soft: "#25586f"
+  cyan-deep: "#2f6e89"
+  white: "#f2f2f2"
+  paper: "#cbd7dd"
+  cyan-mist: "#dfe7eb"
+  cyan-line: "#b7c6cf"
+  cyan-haze: "#cbd7dd"
 typography:
   display:
     fontFamily: "Rubik, Arial Black, sans-serif"
@@ -120,8 +120,8 @@ Four unmixed brand colors from the logo, with two tints for secondary text, used
 - **Navy Soft** (`navy-soft`): secondary text on white or paper (6.5:1). Never gray.
 - **Cyan Deep** (`cyan-deep`): decorative tint only (pattern ink on cyan, hairline rules); never for text.
 - **White** (`white`): slab faces and text on navy or red.
-- **Paper** (`paper`): the page ground between slabs, a near-white with a hint of cyan so white slabs still read as objects on it.
-- **Cyan Mist** (`cyan-mist`): secondary text on navy surfaces (12.9:1). Never on light grounds.
+- **Paper** (`paper`): the page ground between slabs, the palette's light grey-blue (#cbd7dd) so off-white slabs read as objects on it. Muted text on it is `navy-soft` (5.3:1).
+- **Cyan Mist** (`cyan-mist`): secondary text on navy surfaces. Never on light grounds.
 - **Cyan Line** (`cyan-line`): placeholder text lines inside authored demo interfaces only; never real UI.
 - **Cyan Haze** (`cyan-haze`): the footer's secondary text on navy.
 

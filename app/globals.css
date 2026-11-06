@@ -1,17 +1,17 @@
 @import "./extrusion.css";
 
 :root {
-  --cyan: #00dbff;
-  --red: #ff0303;
-  --red-deep: #d10000;
-  --navy: #012340;
-  --navy-soft: #106587;
-  --cyan-deep: #279bcd;
-  --white: #ffffff;
-  --paper: #f4fbfd;
-  --cyan-mist: #dff5fb;
-  --cyan-line: #c7dfe8;
-  --cyan-haze: #bfe9f4;
+  --cyan: #4ea3b5;
+  --red: #eb5153;
+  --red-deep: #c8383b;
+  --navy: #0f2b3e;
+  --navy-soft: #25586f;
+  --cyan-deep: #2f6e89;
+  --white: #f2f2f2;
+  --paper: #cbd7dd;
+  --cyan-mist: #dfe7eb;
+  --cyan-line: #b7c6cf;
+  --cyan-haze: #cbd7dd;
 
   --stroke: 3px;
   --stroke-sm: 2px;
@@ -300,7 +300,7 @@ button {
 }
 
 .tag--red {
-  background: var(--red);
+  background: var(--red-deep);
   color: var(--white);
 }
 
