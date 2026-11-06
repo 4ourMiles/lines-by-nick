@@ -1,5 +1,4 @@
-// PLACEHOLDER: replace with the studio's real inbox before launch.
-export const CONTACT_EMAIL = "hello@lbn.design";
+export const CONTACT_EMAIL = "linesbynick@gmail.com";
 export const CONTACT_HREF = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
   "New project for LBN Design",
 )}`;
