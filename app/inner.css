@@ -434,6 +434,21 @@
   }
 }
 
+/* sent: the form slab becomes the confirmation */
+
+.form--sent {
+  gap: 14px;
+  justify-items: start;
+}
+
+.form__sent-head {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+}
+
+.form__sent-text {
+  max-width: 44ch;
+}
+
 /* ===== pay ===== */
 
 .pay {

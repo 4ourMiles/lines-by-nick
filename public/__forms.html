@@ -1,0 +1,27 @@
+<!doctype html>
+<!--
+  Netlify Forms registration. Netlify reads this static file at deploy time to
+  learn the two forms and their fields; the React forms in components/BriefForm.tsx
+  POST to this path. Not a page anyone visits.
+-->
+<html lang="en"><head><meta charset="utf-8"><title>forms</title></head><body>
+<form name="brief" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+  <input type="hidden" name="form-name" value="brief" />
+  <input type="text" name="bot-field" />
+  <input type="text" name="name" />
+  <input type="email" name="email" />
+  <input type="text" name="company" />
+  <input type="text" name="needs" />
+  <input type="text" name="budget" />
+  <input type="text" name="timeline" />
+  <textarea name="message"></textarea>
+</form>
+<form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+  <input type="hidden" name="form-name" value="contact" />
+  <input type="text" name="bot-field" />
+  <input type="text" name="name" />
+  <input type="email" name="email" />
+  <input type="text" name="company" />
+  <textarea name="message"></textarea>
+</form>
+</body></html>

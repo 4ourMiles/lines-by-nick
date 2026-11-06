@@ -1,0 +1,7 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+# Netlify installs @netlify/plugin-nextjs automatically for Next.js sites.
+# Forms are registered from public/__forms.html; enable form detection in
+# Site configuration > Forms, then add an email notification there.
