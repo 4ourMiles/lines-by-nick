@@ -1,0 +1,378 @@
+@import "./extrusion.css";
+
+:root {
+  --cyan: #00dbff;
+  --red: #ff0303;
+  --red-deep: #d10000;
+  --navy: #012340;
+  --navy-soft: #106587;
+  --cyan-deep: #279bcd;
+  --white: #ffffff;
+  --paper: #f4fbfd;
+  --cyan-mist: #dff5fb;
+  --cyan-line: #c7dfe8;
+  --cyan-haze: #bfe9f4;
+
+  --stroke: 3px;
+  --stroke-sm: 2px;
+
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 22px;
+  --r-xl: 32px;
+
+  --s-1: 8px;
+  --s-2: 16px;
+  --s-3: 24px;
+  --s-4: 48px;
+  --s-5: 96px;
+  --s-6: 160px;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --font: var(--font-rubik), "Arial Black", Arial, sans-serif;
+
+  --gutter: 24px;
+  --section-gap: var(--s-5);
+}
+
+@media (min-width: 900px) {
+  :root {
+    --gutter: 48px;
+    --section-gap: var(--s-6);
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--paper);
+  color: var(--navy);
+  font-family: var(--font);
+  font-size: 1.125rem;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+ol {
+  margin: 0;
+}
+
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--navy);
+  outline-offset: 4px;
+}
+
+.slab--navy :focus-visible,
+.footer :focus-visible,
+.ticker :focus-visible {
+  outline-color: var(--cyan);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ---------- layout ---------- */
+
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section {
+  padding-block: var(--section-gap) 0;
+}
+
+/* ---------- type ---------- */
+
+.display {
+  font-weight: 900;
+  font-size: clamp(3rem, 8.2vw, 6.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.headline {
+  font-weight: 900;
+  font-size: clamp(2.125rem, 4.6vw, 3.875rem);
+  line-height: 0.98;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.lede {
+  font-size: clamp(1.125rem, 1.5vw, 1.375rem);
+  line-height: 1.45;
+  max-width: 34em;
+}
+
+.body {
+  max-width: 60ch;
+}
+
+.label {
+  font-weight: 700;
+  font-size: 0.8125rem;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.muted {
+  color: var(--navy-soft);
+}
+
+/* ---------- slabs: the brand's extruded object ---------- */
+
+.slab {
+  position: relative;
+  background: var(--white);
+  color: var(--navy);
+  border: var(--stroke) solid var(--navy);
+  border-radius: var(--r-lg);
+  box-shadow: var(--ex-14);
+}
+
+.slab--cyan {
+  background: var(--cyan);
+}
+
+.slab--red {
+  background: var(--red);
+  color: var(--white);
+}
+
+.slab--navy {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.slab--paper {
+  background: var(--paper);
+}
+
+.slab--sm {
+  border-radius: var(--r-md);
+  box-shadow: var(--ex-8);
+}
+
+.slab--xs {
+  border-radius: var(--r-sm);
+  box-shadow: var(--ex-4);
+}
+
+.slab--xl {
+  border-radius: var(--r-xl);
+  box-shadow: var(--ex-24);
+}
+
+/* ---------- controls ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 58px;
+  padding: 14px 28px;
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  color: var(--navy);
+  background: var(--white);
+  border: var(--stroke) solid var(--navy);
+  border-radius: var(--r-md);
+  box-shadow: var(--ex-8);
+  cursor: pointer;
+  transform: translate(0, 0);
+  transition:
+    transform 0.18s var(--ease-out),
+    box-shadow 0.18s var(--ease-out),
+    background-color 0.18s var(--ease-out);
+}
+
+.btn:hover {
+  transform: translate(2px, 2px);
+  box-shadow: var(--ex-6);
+}
+
+.btn:active {
+  transform: translate(8px, 8px);
+  box-shadow: var(--ex-0);
+}
+
+.btn--primary {
+  background: var(--red);
+  color: var(--white);
+}
+
+.btn--primary:hover {
+  background: var(--red-deep);
+}
+
+.btn--cyan {
+  background: var(--cyan);
+}
+
+.btn[aria-disabled="true"] {
+  background: var(--paper);
+  color: var(--navy-soft);
+  box-shadow: none;
+  transform: none;
+  cursor: not-allowed;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 12px;
+  background: var(--white);
+  color: var(--navy);
+  border: var(--stroke-sm) solid var(--navy);
+  border-radius: var(--r-sm);
+  box-shadow: var(--ex-4);
+  font-weight: 700;
+  font-size: 0.8125rem;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.tag--cyan {
+  background: var(--cyan);
+}
+
+.tag--red {
+  background: var(--red);
+  color: var(--white);
+}
+
+.tag--navy {
+  background: var(--navy);
+  color: var(--white);
+}
+
+/* ---------- marquee ---------- */
+
+.ticker {
+  overflow: hidden;
+  background: var(--navy);
+  color: var(--white);
+  border-block: var(--stroke) solid var(--navy);
+  padding-block: 16px;
+}
+
+.ticker__track {
+  display: flex;
+  gap: 0;
+  width: max-content;
+  animation: ticker 40s linear infinite;
+}
+
+.ticker__group {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding-right: 28px;
+  font-weight: 800;
+  font-size: 1.25rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.ticker__dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  background: var(--cyan);
+  flex: none;
+}
+
+.ticker__dot--red {
+  background: var(--red);
+}
+
+@keyframes ticker {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker__track {
+    animation: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ---------- brand pattern ---------- */
+
+.pattern {
+  --tile: 120px;
+  background-image: url("/brand/lbn-wallpaper.svg"), url("/brand/lbn-wallpaper.svg");
+  background-size: var(--tile) auto, var(--tile) auto;
+  background-position:
+    0 0,
+    calc(var(--tile) / 2) calc(var(--tile) * 0.9052);
+  background-repeat: repeat;
+}

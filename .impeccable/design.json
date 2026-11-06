@@ -1,0 +1,221 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-05T22:52:41.722562+00:00",
+  "title": "Design System: LBN Design",
+  "extensions": {
+    "colorMeta": {
+      "cyan": {
+        "role": "primary",
+        "displayName": "LbN Cyan",
+        "canonical": "#00dbff",
+        "tonalRamp": [
+          "#002b33",
+          "#005566",
+          "#008099",
+          "#00abcc",
+          "#00dbff",
+          "#4de6ff",
+          "#99f1ff",
+          "#dff5fb"
+        ]
+      },
+      "red": {
+        "role": "primary",
+        "displayName": "Signal Red",
+        "canonical": "#ff0303",
+        "tonalRamp": [
+          "#330000",
+          "#660101",
+          "#990202",
+          "#d10000",
+          "#ff0303",
+          "#ff4d4d",
+          "#ff9999",
+          "#ffe5e5"
+        ]
+      },
+      "navy": {
+        "role": "neutral",
+        "displayName": "Ink Navy",
+        "canonical": "#012340",
+        "tonalRamp": [
+          "#012340",
+          "#0b3a5c",
+          "#106587",
+          "#1f85ad",
+          "#279bcd",
+          "#7cc5e3",
+          "#c7dfe8",
+          "#f4fbfd"
+        ]
+      },
+      "white": {
+        "role": "neutral",
+        "displayName": "White",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#f4fbfd",
+          "#ffffff"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero headline and contact close."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "One per slab."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Paragraphs, max 60ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Inside tags and toggles only."
+      }
+    },
+    "shadows": [
+      {
+        "name": "ex-4",
+        "value": "1px 1px 0 #012340, 2px 2px 0 #012340, 3px 3px 0 #012340, 4px 4px 0 #012340",
+        "purpose": "Tags and small controls."
+      },
+      {
+        "name": "ex-8",
+        "value": "1px 1px 0 #012340, 2px 2px 0 #012340, 3px 3px 0 #012340, 4px 4px 0 #012340, 5px 5px 0 #012340, 6px 6px 0 #012340, 7px 7px 0 #012340, 8px 8px 0 #012340",
+        "purpose": "Buttons, nav bar, visual sub-blocks."
+      },
+      {
+        "name": "ex-14",
+        "value": "1px-stepped diagonal to 14px 14px 0 #012340",
+        "purpose": "Section slabs."
+      },
+      {
+        "name": "ex-24",
+        "value": "1px-stepped diagonal to 24px 24px 0 #012340",
+        "purpose": "Hero stage and contact close."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Every press and tilt."
+      },
+      {
+        "name": "press",
+        "value": "transform 0.18s, box-shadow 0.18s",
+        "purpose": "Hover moves 2px onto the side; active moves fully onto it."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "600px"
+      },
+      {
+        "name": "md",
+        "value": "900px"
+      },
+      {
+        "name": "lg",
+        "value": "1100px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The single red action.",
+      "html": "<a class=\"ds-btn ds-btn-primary\" href=\"#\">Start a project</a>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:14px 26px;font:700 1.125rem/1 Rubik,Arial,sans-serif;letter-spacing:-0.01em;text-decoration:none;color:#012340;background:#fff;border:2px solid #012340;border-radius:14px;box-shadow:1px 1px 0 #012340,2px 2px 0 #012340,3px 3px 0 #012340,4px 4px 0 #012340,5px 5px 0 #012340,6px 6px 0 #012340,7px 7px 0 #012340,8px 8px 0 #012340;transition:transform .18s cubic-bezier(.16,1,.3,1),box-shadow .18s cubic-bezier(.16,1,.3,1),background-color .18s}.ds-btn:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 #012340,2px 2px 0 #012340,3px 3px 0 #012340,4px 4px 0 #012340,5px 5px 0 #012340,6px 6px 0 #012340}.ds-btn:active{transform:translate(8px,8px);box-shadow:none}.ds-btn:focus-visible{outline:3px solid #012340;outline-offset:4px}.ds-btn-primary{background:#ff0303;color:#fff}.ds-btn-primary:hover{background:#d10000}"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "White slab button.",
+      "html": "<a class=\"ds-btn\" href=\"#\">See what we do</a>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:14px 26px;font:700 1.125rem/1 Rubik,Arial,sans-serif;text-decoration:none;color:#012340;background:#fff;border:2px solid #012340;border-radius:14px;box-shadow:1px 1px 0 #012340,2px 2px 0 #012340,3px 3px 0 #012340,4px 4px 0 #012340,5px 5px 0 #012340,6px 6px 0 #012340,7px 7px 0 #012340,8px 8px 0 #012340;transition:transform .18s,box-shadow .18s}.ds-btn:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 #012340,2px 2px 0 #012340,3px 3px 0 #012340,4px 4px 0 #012340,5px 5px 0 #012340,6px 6px 0 #012340}"
+    },
+    {
+      "name": "Tag",
+      "kind": "chip",
+      "refersTo": "tag",
+      "description": "Uppercase label on a small slab; toggles use aria-pressed.",
+      "html": "<span class=\"ds-tag\">React Native</span> <button class=\"ds-tag ds-tag-on\" aria-pressed=\"true\">a website</button>",
+      "css": ".ds-tag{display:inline-flex;align-items:center;gap:8px;padding:9px 12px;background:#fff;color:#012340;border:2px solid #012340;border-radius:8px;box-shadow:1px 1px 0 #012340,2px 2px 0 #012340,3px 3px 0 #012340,4px 4px 0 #012340;font:700 .8125rem/1 Rubik,Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;cursor:default}.ds-tag-on{background:#00dbff;transform:translate(4px,4px);box-shadow:none}"
+    },
+    {
+      "name": "Slab",
+      "kind": "card",
+      "refersTo": "slab",
+      "description": "The structural container; white, cyan or navy face with a 14px navy side.",
+      "html": "<div class=\"ds-slab\"><h3>Salesforce solutions</h3><p>Set up, clean up or extend Salesforce so your team actually uses it.</p></div>",
+      "css": ".ds-slab{background:#00dbff;color:#012340;border:2px solid #012340;border-radius:22px;padding:32px;box-shadow:1px 1px 0 #012340,2px 2px 0 #012340,3px 3px 0 #012340,4px 4px 0 #012340,5px 5px 0 #012340,6px 6px 0 #012340,7px 7px 0 #012340,8px 8px 0 #012340,9px 9px 0 #012340,10px 10px 0 #012340,11px 11px 0 #012340,12px 12px 0 #012340,13px 13px 0 #012340,14px 14px 0 #012340;font-family:Rubik,Arial,sans-serif}.ds-slab h3{margin:0 0 12px;font-weight:800;font-size:2rem;line-height:.98;letter-spacing:-.025em}.ds-slab p{margin:0;font-size:1.125rem;line-height:1.5}"
+    },
+    {
+      "name": "Nav bar",
+      "kind": "nav",
+      "refersTo": "slab",
+      "description": "Sticky white slab bar with wordmark, links and the primary action.",
+      "html": "<nav class=\"ds-nav\"><span class=\"ds-nav-brand\">LBN Design</span><a href=\"#\">Services</a><a href=\"#\">Why LBN</a><a href=\"#\">Contact</a><a class=\"ds-nav-cta\" href=\"#\">Start a project</a></nav>",
+      "css": ".ds-nav{display:flex;align-items:center;gap:24px;padding:10px 12px 10px 16px;min-height:72px;background:#fff;border:2px solid #012340;border-radius:14px;box-shadow:1px 1px 0 #012340,2px 2px 0 #012340,3px 3px 0 #012340,4px 4px 0 #012340,5px 5px 0 #012340,6px 6px 0 #012340,7px 7px 0 #012340,8px 8px 0 #012340;font-family:Rubik,Arial,sans-serif;color:#012340}.ds-nav-brand{font-weight:800;font-size:1.25rem;letter-spacing:-.02em;margin-right:auto}.ds-nav a{color:inherit;text-decoration:none;font-weight:500;padding:6px 2px;border-bottom:3px solid transparent}.ds-nav a:hover{border-color:#00dbff}.ds-nav .ds-nav-cta{background:#ff0303;color:#fff;font-weight:700;padding:12px 22px;border:2px solid #012340;border-radius:14px;box-shadow:1px 1px 0 #012340,2px 2px 0 #012340,3px 3px 0 #012340,4px 4px 0 #012340,5px 5px 0 #012340,6px 6px 0 #012340,7px 7px 0 #012340,8px 8px 0 #012340}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Built Letter",
+    "overview": "The LbN mark is three letters built as solid objects. The site is that object continued at page scale: every surface is a slab with a flat saturated face, a 2px navy outline and a hard diagonal navy extrusion. Clean pop: few unmixed colors, big type, generous air, no texture other than the brand's own pattern tile.",
+    "keyCharacteristics": [
+      "Hard diagonal navy extrusion on every structural slab; no blurred shadows.",
+      "Four unmixed colors carry whole regions.",
+      "One heavy rounded geometric family (Rubik) at every size.",
+      "Rounded-rectangle geometry matched to the letterforms.",
+      "Motion is physical: press, stack, tilt."
+    ],
+    "rules": [
+      {
+        "name": "The Side Rule",
+        "body": "Depth is a solid navy side, never a blur. Steps 4, 8, 14, 24px.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Whole-Region Rule",
+        "body": "A brand color owns a region or it does not appear.",
+        "section": "colors"
+      },
+      {
+        "name": "The Red Budget Rule",
+        "body": "One primary button per viewport plus at most one red slab per page.",
+        "section": "colors"
+      },
+      {
+        "name": "The No-Eyebrow Rule",
+        "body": "Sections open with their headline; the uppercase label lives inside tags.",
+        "section": "typography"
+      },
+      {
+        "name": "The Press Rule",
+        "body": "Hover moves 2px onto the side; active moves fully onto it.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do draw depth as a navy diagonal side at 4 / 8 / 14 / 24px.",
+      "Do let cyan own the hero and navy own the footer.",
+      "Do keep 2px navy outlines on every slab and control.",
+      "Do author visuals from the slab vocabulary and label synthetic samples."
+    ],
+    "donts": [
+      "Don't use blurred shadows, glass, gradients or gradient text.",
+      "Don't put body text in white on red.",
+      "Don't add a fifth hue.",
+      "Don't put an uppercase eyebrow above section headings."
+    ]
+  }
+}
