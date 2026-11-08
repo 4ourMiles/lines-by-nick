@@ -3,16 +3,15 @@
 import { useEffect } from "react";
 
 /**
- * The pull: each cell prints when it enters the viewport. Adds `pull-ready`
- * to <html> once JS is live (so nothing is hidden without it) and `is-in`
- * to every .cell the first time it is 15% visible. The CSS in globals.css
- * does the rest; reduced motion renders everything printed.
+ * The pull: each cell prints when it enters the viewport. The inline script
+ * in app/layout.tsx arms `pull-ready` on <html> before first paint (so the
+ * page never prints and then un-prints); this adds `is-in` to every .cell
+ * the first time it is 15% visible. Without JS nothing is ever hidden.
  */
 export function Pull() {
   useEffect(() => {
     const root = document.documentElement;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    root.classList.add("pull-ready");
+    if (!root.classList.contains("pull-ready")) return;
     const cells = Array.from(document.querySelectorAll<HTMLElement>(".cell"));
     if (!("IntersectionObserver" in window)) {
       cells.forEach((c) => c.classList.add("is-in"));

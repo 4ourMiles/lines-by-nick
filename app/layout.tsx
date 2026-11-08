@@ -36,7 +36,17 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${unbounded.variable} ${figtree.variable}`}>
+    <html lang="en" className={`${unbounded.variable} ${figtree.variable}`} suppressHydrationWarning>
+      <head>
+        {/* Arm the pull before first paint so nothing prints and then un-prints.
+            Reduced motion never arms it. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.classList.add('pull-ready')}}catch(e){}",
+          }}
+        />
+      </head>
       <body>
         <Pull />
         {children}
