@@ -1,44 +1,39 @@
-@import "./extrusion.css";
+/* ===== Lines by Nick: the screen-print pull =====
+   One black keyline (Nick's handwriting + heavy-outline isometric objects),
+   saturated flat color passes under it, bone stock. See DESIGN.md. */
 
 :root {
-  --cyan: #4ea3b5;
-  --red: #eb5153;
-  --red-deep: #c8383b;
-  --navy: #0f2b3e;
-  --navy-soft: #25586f;
-  --cyan-deep: #2f6e89;
-  --white: #f2f2f2;
-  --paper: #cbd7dd;
-  --cyan-mist: #dfe7eb;
-  --cyan-line: #b7c6cf;
-  --cyan-haze: #cbd7dd;
+  --ink: #231f20;
+  --ink-soft: #5a5553;
+  --bone: #f3efe4;
+  --bone-deep: #e7e0cf;
+  --white: #fffdf8;
+  --coral: #ff5a3c;
+  --coral-deep: #d93c21;
+  --cobalt: #2b4cf2;
+  --cobalt-deep: #1d36b8;
+  --yellow: #ffc940;
+  --yellow-deep: #e0a81a;
+  --mint: #8be0c1;
+  --mint-deep: #4cbf98;
 
-  --stroke: 3px;
-  --stroke-sm: 2px;
+  --rule: 2px;
+  --key: 3px;
+  --pass: 4px;
+  --r-sm: 3px;
 
-  --r-sm: 8px;
-  --r-md: 14px;
-  --r-lg: 22px;
-  --r-xl: 32px;
-
-  --s-1: 8px;
-  --s-2: 16px;
-  --s-3: 24px;
-  --s-4: 48px;
-  --s-5: 96px;
-  --s-6: 160px;
+  --font-display: var(--font-unbounded), "Arial Black", Arial, sans-serif;
+  --font-body: var(--font-figtree), "Helvetica Neue", Arial, sans-serif;
 
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-  --font: var(--font-rubik), "Arial Black", Arial, sans-serif;
-
-  --gutter: 24px;
-  --section-gap: var(--s-5);
+  --gutter: 20px;
+  --pad: 24px;
 }
 
 @media (min-width: 900px) {
   :root {
     --gutter: 48px;
-    --section-gap: var(--s-6);
+    --pad: 48px;
   }
 }
 
@@ -49,17 +44,17 @@
 }
 
 html {
-  scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
-  background-color: var(--paper);
-  color: var(--navy);
-  font-family: var(--font);
-  font-size: 1.125rem;
-  line-height: 1.5;
+  background: var(--bone);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.55;
   -webkit-font-smoothing: antialiased;
   overflow-x: clip;
 }
@@ -79,7 +74,8 @@ h2,
 h3,
 p,
 ul,
-ol {
+ol,
+figure {
   margin: 0;
 }
 
@@ -95,14 +91,13 @@ button {
 }
 
 :focus-visible {
-  outline: 3px solid var(--navy);
-  outline-offset: 4px;
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
 }
 
-.slab--navy :focus-visible,
-.footer :focus-visible,
-.ticker :focus-visible {
-  outline-color: var(--cyan);
+.cell--cobalt :focus-visible,
+.cell--ink :focus-visible {
+  outline-color: var(--bone);
 }
 
 .visually-hidden {
@@ -114,52 +109,43 @@ button {
   white-space: nowrap;
 }
 
-/* ---------- layout ---------- */
-
-.container {
-  width: 100%;
-  max-width: 1240px;
-  margin-inline: auto;
-  padding-inline: var(--gutter);
-}
-
-.section {
-  padding-block: var(--section-gap) 0;
-}
-
 /* ---------- type ---------- */
 
 .display {
-  font-weight: 900;
-  font-size: clamp(3rem, 8.2vw, 6.5rem);
-  line-height: 0.9;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.5rem, 6.4vw, 5.25rem);
+  line-height: 1.02;
   letter-spacing: -0.03em;
   text-wrap: balance;
 }
 
 .headline {
-  font-weight: 900;
-  font-size: clamp(2.125rem, 4.6vw, 3.875rem);
-  line-height: 0.98;
-  letter-spacing: -0.025em;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.75rem, 3.4vw, 2.75rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
   text-wrap: balance;
 }
 
 .title {
-  font-weight: 700;
-  font-size: 1.25rem;
-  line-height: 1.15;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.2;
   letter-spacing: -0.01em;
 }
 
 .lede {
+  font-weight: 500;
   font-size: clamp(1.125rem, 1.5vw, 1.375rem);
   line-height: 1.45;
-  max-width: 34em;
+  max-width: 30em;
 }
 
 .body {
-  max-width: 60ch;
+  max-width: 65ch;
 }
 
 .label {
@@ -171,107 +157,228 @@ button {
 }
 
 .muted {
-  color: var(--navy-soft);
+  color: var(--ink-soft);
 }
 
-/* ---------- slabs: the brand's extruded object ---------- */
+.cell--cobalt .muted,
+.cell--coral .muted,
+.cell--yellow .muted,
+.cell--mint .muted,
+.cell--ink .muted {
+  color: inherit;
+  opacity: 0.85;
+}
 
-.slab {
+/* ---------- the sheet: ruled cells sharing one ink rule ---------- */
+
+.sheet-wrap {
   position: relative;
+  max-width: 1240px;
+  margin-inline: auto;
+  padding: 28px var(--gutter) 40px;
+}
+
+.sheet {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--rule);
+  background: var(--ink);
+  border: var(--rule) solid var(--ink);
+}
+
+.cell {
+  position: relative;
+  background: var(--bone);
+  color: var(--ink);
+  padding: var(--pad);
+  min-width: 0;
+}
+
+.cell--white {
   background: var(--white);
-  color: var(--navy);
-  border: var(--stroke) solid var(--navy);
-  border-radius: var(--r-lg);
-  box-shadow: var(--ex-14);
 }
 
-.slab--cyan {
-  background: var(--cyan);
+.cell--coral {
+  background: var(--coral);
 }
 
-.slab--red {
-  background: var(--red);
-  color: var(--white);
+.cell--cobalt {
+  background: var(--cobalt);
+  color: var(--bone);
 }
 
-.slab--navy {
-  background: var(--navy);
-  color: var(--white);
+.cell--yellow {
+  background: var(--yellow);
 }
 
-.slab--paper {
-  background: var(--paper);
+.cell--mint {
+  background: var(--mint);
 }
 
-.slab--sm {
-  border-radius: var(--r-md);
-  box-shadow: var(--ex-8);
+.cell--ink {
+  background: var(--ink);
+  color: var(--bone);
 }
 
-.slab--xs {
-  border-radius: var(--r-sm);
-  box-shadow: var(--ex-4);
+.cell--tight {
+  padding: 14px var(--pad);
 }
 
-.slab--xl {
-  border-radius: var(--r-xl);
-  box-shadow: var(--ex-24);
+/* nested rows reuse the same shared-rule trick */
+.row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--rule);
+  background: var(--ink);
+  min-width: 0;
 }
 
-/* ---------- controls ---------- */
+@media (min-width: 900px) {
+  .sheet {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .span-2 {
+    grid-column: 1 / -1;
+  }
+
+  .row--2 {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .row--3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .row--aside {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  }
+}
+
+/* cell furniture: registration mark top-left, caption top-right */
+
+.cell__reg {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  width: 20px;
+  height: 20px;
+}
+
+.cell__cap {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  opacity: 0.85;
+}
+
+.cell__head {
+  display: grid;
+  gap: 16px;
+  justify-items: start;
+}
+
+/* crop ticks outside the sheet corners (desktop) */
+
+.crop {
+  display: none;
+}
+
+@media (min-width: 900px) {
+  .crop {
+    display: block;
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    pointer-events: none;
+  }
+
+  .crop::before,
+  .crop::after {
+    content: "";
+    position: absolute;
+    background: var(--ink);
+  }
+
+  .crop::before {
+    width: 14px;
+    height: 2px;
+  }
+
+  .crop::after {
+    width: 2px;
+    height: 14px;
+  }
+
+  .crop--tl { top: 8px; left: calc(var(--gutter) - 20px); }
+  .crop--tr { top: 8px; right: calc(var(--gutter) - 20px); }
+  .crop--bl { bottom: 20px; left: calc(var(--gutter) - 20px); }
+  .crop--br { bottom: 20px; right: calc(var(--gutter) - 20px); }
+
+  .crop--tl::before, .crop--bl::before { left: 0; }
+  .crop--tr::before, .crop--br::before { right: 0; }
+  .crop--tl::before, .crop--tr::before { top: 0; }
+  .crop--bl::before, .crop--br::before { bottom: 0; }
+  .crop--tl::after, .crop--tr::after { top: 0; }
+  .crop--bl::after, .crop--br::after { bottom: 0; }
+  .crop--tl::after, .crop--bl::after { left: 0; }
+  .crop--tr::after, .crop--br::after { right: 0; }
+}
+
+/* ---------- controls: printed blocks, misregistered passes ---------- */
 
 .btn {
+  --pass-color: var(--ink);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  min-height: 58px;
+  min-height: 54px;
   padding: 14px 28px;
   font-weight: 700;
-  font-size: 1.25rem;
+  font-size: 1.0625rem;
   line-height: 1;
-  letter-spacing: -0.01em;
   text-decoration: none;
-  color: var(--navy);
-  background: var(--white);
-  border: var(--stroke) solid var(--navy);
-  border-radius: var(--r-md);
-  box-shadow: var(--ex-8);
+  color: var(--ink);
+  background: var(--bone);
+  border: var(--rule) solid var(--ink);
+  border-radius: var(--r-sm);
+  box-shadow: var(--pass) var(--pass) 0 var(--pass-color);
   cursor: pointer;
   transform: translate(0, 0);
   transition:
-    transform 0.18s var(--ease-out),
-    box-shadow 0.18s var(--ease-out),
-    background-color 0.18s var(--ease-out);
+    transform 0.16s var(--ease-out),
+    box-shadow 0.16s var(--ease-out);
 }
 
 .btn:hover {
-  transform: translate(2px, 2px);
-  box-shadow: var(--ex-6);
+  box-shadow: 6px 6px 0 var(--pass-color);
 }
 
 .btn:active {
-  transform: translate(8px, 8px);
-  box-shadow: var(--ex-0);
+  transform: translate(var(--pass), var(--pass));
+  box-shadow: 0 0 0 var(--pass-color);
 }
 
 .btn--primary {
-  background: var(--red);
-  color: var(--white);
+  --pass-color: var(--coral-deep);
+  background: var(--coral);
 }
 
-.btn--primary:hover {
-  background: var(--red-deep);
+.btn--yellow {
+  --pass-color: var(--yellow-deep);
+  background: var(--yellow);
 }
 
-.btn--cyan {
-  background: var(--cyan);
+.btn--white {
+  background: var(--white);
 }
 
 .btn:disabled,
 .btn[aria-disabled="true"] {
-  background: var(--paper);
-  color: var(--navy-soft);
+  background: var(--bone-deep);
+  color: var(--ink-soft);
   box-shadow: none;
   transform: none;
   cursor: not-allowed;
@@ -281,12 +388,11 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 9px 12px;
+  padding: 8px 12px;
   background: var(--white);
-  color: var(--navy);
-  border: var(--stroke-sm) solid var(--navy);
+  color: var(--ink);
+  border: var(--rule) solid var(--ink);
   border-radius: var(--r-sm);
-  box-shadow: var(--ex-4);
   font-weight: 700;
   font-size: 0.8125rem;
   line-height: 1;
@@ -295,85 +401,149 @@ button {
   white-space: nowrap;
 }
 
-.tag--cyan {
-  background: var(--cyan);
+.tag--coral { background: var(--coral); }
+.tag--cobalt { background: var(--cobalt); color: var(--bone); }
+.tag--yellow { background: var(--yellow); }
+.tag--mint { background: var(--mint); }
+.tag--bone { background: var(--bone); }
+
+.tag--toggle {
+  cursor: pointer;
+  transition: background-color 0.16s var(--ease-out);
 }
 
-.tag--red {
-  background: var(--red-deep);
-  color: var(--white);
+.tag--toggle:hover {
+  background: var(--bone-deep);
 }
 
-.tag--navy {
-  background: var(--navy);
-  color: var(--white);
+.tag--toggle[aria-pressed="true"] {
+  background: var(--yellow);
 }
 
-/* ---------- marquee ---------- */
-
-.ticker {
-  overflow: hidden;
-  background: var(--navy);
-  color: var(--white);
-  border-block: var(--stroke) solid var(--navy);
-  padding-block: 16px;
-}
-
-.ticker__track {
+.tags {
   display: flex;
-  gap: 0;
-  width: max-content;
-  animation: ticker 40s linear infinite;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
-.ticker__group {
-  display: flex;
-  align-items: center;
-  gap: 28px;
-  padding-right: 28px;
-  font-weight: 800;
-  font-size: 1.25rem;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  white-space: nowrap;
+/* a printed block: keyline + pass, used for panels and the hero accent */
+
+.block {
+  --pass-color: var(--ink);
+  position: relative;
+  display: inline-block;
+  background: var(--white);
+  border: var(--rule) solid var(--ink);
+  border-radius: var(--r-sm);
+  box-shadow: var(--pass) var(--pass) 0 var(--pass-color);
 }
 
-.ticker__dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 3px;
-  background: var(--cyan);
-  flex: none;
-}
+.block--coral { background: var(--coral); --pass-color: var(--coral-deep); }
+.block--cobalt { background: var(--cobalt); color: var(--bone); --pass-color: var(--cobalt-deep); }
+.block--yellow { background: var(--yellow); --pass-color: var(--yellow-deep); }
+.block--mint { background: var(--mint); --pass-color: var(--mint-deep); }
 
-.ticker__dot--red {
-  background: var(--red);
-}
+/* ---------- the pull: color passes register onto the keyline ---------- */
 
-@keyframes ticker {
-  to {
-    transform: translateX(-50%);
+@keyframes register {
+  from {
+    opacity: 0;
+    translate: -6px -6px;
   }
+  to {
+    opacity: 1;
+    translate: 3px 3px;
+  }
+}
+
+@keyframes register-pass {
+  from {
+    box-shadow: 0 0 0 var(--pass-color);
+  }
+  to {
+    box-shadow: var(--pass) var(--pass) 0 var(--pass-color);
+  }
+}
+
+.pull .iso__fill {
+  animation: register 0.5s var(--ease-out) both;
+  animation-delay: calc(0.1s + var(--i, 0) * 90ms);
+}
+
+.pull .btn,
+.pull .block {
+  animation: register-pass 0.4s var(--ease-out) both;
+  animation-delay: calc(0.3s + var(--i, 0) * 90ms);
+}
+
+.pull .btn:hover,
+.pull .btn:active {
+  animation: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ticker__track {
-    animation: none;
-  }
-
   html {
     scroll-behavior: auto;
   }
+
+  .pull .iso__fill,
+  .pull .btn,
+  .pull .block {
+    animation: none;
+  }
 }
 
-/* ---------- brand pattern ---------- */
+/* ---------- handwritten glyphs: Nick's ink, never recolored ---------- */
 
-.pattern {
-  --tile: 120px;
-  background-image: url("/brand/lbn-wallpaper.svg"), url("/brand/lbn-wallpaper.svg");
-  background-size: var(--tile) auto, var(--tile) auto;
-  background-position:
-    0 0,
-    calc(var(--tile) / 2) calc(var(--tile) * 0.9052);
-  background-repeat: repeat;
+.glyph {
+  display: block;
+  width: var(--w, 64px);
+  height: auto;
+  rotate: var(--rot, 0deg);
+  pointer-events: none;
+  user-select: none;
+}
+
+.cell--cobalt .glyph,
+.cell--ink .glyph,
+.glyph--bone {
+  /* the same ink drawing shown on a dark field */
+  filter: invert(1) brightness(1.05);
+}
+
+/* ---------- isometric printed objects ---------- */
+
+.iso {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.iso__key {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: var(--key);
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.iso__fill {
+  translate: 3px 3px;
+}
+
+.iso__fill line,
+.iso__fill path {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* main is a grid participant, not a wrapper */
+.sheet__main {
+  display: contents;
+}
+
+@media (min-width: 900px) {
+  .sheet__main > .row {
+    grid-column: 1 / -1;
+  }
 }

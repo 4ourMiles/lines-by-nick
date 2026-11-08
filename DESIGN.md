@@ -1,238 +1,237 @@
 ---
-name: LBN Design
-description: The LbN lettermark's world at page scale, every surface a thick extruded slab in teal, coral, navy and off-white (muted palette, Nick, 2026-11-06).
+name: Lines by Nick
+description: A hand-pulled screen print. Black keyline (handwritten code glyphs and heavy-outline isometric objects) with saturated flat color passes laid under it on bone stock.
 colors:
-  cyan: "#4ea3b5"
-  red: "#eb5153"
-  red-deep: "#c8383b"
-  navy: "#0f2b3e"
-  navy-soft: "#25586f"
-  cyan-deep: "#2f6e89"
-  white: "#f2f2f2"
-  paper: "#cbd7dd"
-  cyan-mist: "#dfe7eb"
-  cyan-line: "#b7c6cf"
-  cyan-haze: "#cbd7dd"
+  ink: "#231f20"
+  bone: "#f3efe4"
+  bone-deep: "#e7e0cf"
+  white: "#fffdf8"
+  coral: "#ff5a3c"
+  coral-deep: "#d93c21"
+  cobalt: "#2b4cf2"
+  cobalt-deep: "#1d36b8"
+  yellow: "#ffc940"
+  yellow-deep: "#e0a81a"
+  mint: "#8be0c1"
+  mint-deep: "#4cbf98"
+  ink-soft: "#5a5553"
 typography:
   display:
-    fontFamily: "Rubik, Arial Black, sans-serif"
-    fontSize: "clamp(3rem, 8.2vw, 6.5rem)"
-    fontWeight: 900
-    lineHeight: 0.9
+    fontFamily: "Unbounded, Arial Black, sans-serif"
+    fontSize: "clamp(2.5rem, 6.4vw, 5.25rem)"
+    fontWeight: 800
+    lineHeight: 1.02
     letterSpacing: "-0.03em"
   headline:
-    fontFamily: "Rubik, Arial Black, sans-serif"
-    fontSize: "clamp(2.125rem, 4.6vw, 3.875rem)"
-    fontWeight: 900
-    lineHeight: 0.98
-    letterSpacing: "-0.025em"
-  title:
-    fontFamily: "Rubik, Arial Black, sans-serif"
-    fontSize: "1.25rem"
+    fontFamily: "Unbounded, Arial Black, sans-serif"
+    fontSize: "clamp(1.75rem, 3.4vw, 2.75rem)"
     fontWeight: 700
-    lineHeight: 1.15
-    letterSpacing: "-0.01em"
-  body:
-    fontFamily: "Rubik, Arial Black, sans-serif"
+    lineHeight: 1.08
+    letterSpacing: "-0.02em"
+  title:
+    fontFamily: "Unbounded, Arial Black, sans-serif"
     fontSize: "1.125rem"
+    fontWeight: 600
+    lineHeight: 1.2
+  body:
+    fontFamily: "Figtree, Helvetica Neue, Arial, sans-serif"
+    fontSize: "1.0625rem"
     fontWeight: 400
-    lineHeight: 1.5
-    letterSpacing: "0"
+    lineHeight: 1.55
+  lede:
+    fontFamily: "Figtree, Helvetica Neue, Arial, sans-serif"
+    fontSize: "clamp(1.125rem, 1.5vw, 1.375rem)"
+    fontWeight: 500
+    lineHeight: 1.45
   label:
-    fontFamily: "Rubik, Arial Black, sans-serif"
+    fontFamily: "Figtree, Helvetica Neue, Arial, sans-serif"
     fontSize: "0.8125rem"
     fontWeight: 700
     lineHeight: 1
     letterSpacing: "0.08em"
 rounded:
-  sm: "8px"
-  md: "14px"
-  lg: "22px"
-  xl: "32px"
+  none: "0px"
+  sm: "3px"
+  md: "6px"
 spacing:
   xs: "8px"
   sm: "16px"
   md: "24px"
   lg: "48px"
   xl: "96px"
-  xxl: "160px"
 components:
   button-primary:
-    backgroundColor: "{colors.red}"
-    textColor: "{colors.white}"
-    typography: "{typography.title}"
-    rounded: "{rounded.md}"
-    padding: "14px 28px"
+    backgroundColor: "{colors.coral}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.sm}"
+    padding: "16px 28px"
   button-primary-hover:
-    backgroundColor: "{colors.red-deep}"
-    textColor: "{colors.white}"
-  button-secondary:
-    backgroundColor: "{colors.white}"
-    textColor: "{colors.navy}"
-    typography: "{typography.title}"
-    rounded: "{rounded.md}"
-    padding: "14px 28px"
-  slab:
-    backgroundColor: "{colors.white}"
-    textColor: "{colors.navy}"
-    rounded: "{rounded.lg}"
-    padding: "48px"
+    backgroundColor: "{colors.coral}"
+    textColor: "{colors.ink}"
+  button-keyline:
+    backgroundColor: "{colors.bone}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.sm}"
+    padding: "16px 28px"
   tag:
     backgroundColor: "{colors.white}"
-    textColor: "{colors.navy}"
-    typography: "{typography.label}"
+    textColor: "{colors.ink}"
     rounded: "{rounded.sm}"
     padding: "8px 12px"
+  cell:
+    backgroundColor: "{colors.bone}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.none}"
+    padding: "48px"
+  input:
+    backgroundColor: "{colors.white}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.sm}"
+    padding: "14px 16px"
 ---
 
-# Design System: LBN Design
+# Design System: Lines by Nick
 
 ## Overview
 
-**Creative North Star: "Lines by Nick"**
+**Creative North Star: "The Screen-Print Pull"**
 
-LbN is Lines by Nick. The studio writes lines of code and draws lines of ink, and the page is built the way the mark is built: one heavy navy line outlines everything, then flat saturated color fills it. The mark is three letters built as solid objects with a hard navy side pushed down and to the right; every surface that matters, from the navigation bar to the contact block, is a slab in the same construction: a flat face, a 3px navy outline, and a hard diagonal navy extrusion. Nothing floats on a soft shadow; things sit on their own side.
+Everything on the page is printed. There is one black keyline layer, and that layer holds two kinds of line: Nick's own handwriting (the `<lines by nick>` logo, the `<n>` mark, and the hand-drawn code glyphs: brackets, braces, slashes, semicolons, ampersand, at, percent, root, star, rocket, cursor) and the heavy, uniform outline of isometric objects drawn in the Dave Arcade register (screens, phones, paint tins, pencils, cards, blocks). Under the keyline sit saturated flat color passes: coral, cobalt, yellow and mint, each slightly oversized, flooding under the line the way a real pull does. The stock is bone, never pure white. The contrast that carries the identity is thin handwritten code against thick-outlined built forms, and both against hard flat color.
 
-The register is clean pop: few colors, all unmixed, big type, generous air between slabs, and no texture other than the brand's own pattern tile. Energy comes from scale and color commitment, not from decoration. A non-technical business owner should feel they are looking at a finished, confident, friendly studio. Neither voice is allowed to swallow the other: no texture, no gradients, no hero-sized colour fields outside a slab. A non-technical business owner should feel they are looking at a finished, confident studio with a sense of humour.
+The page is laid out like a printed sheet: sections are cells ruled with ink hairlines, corners carry crop ticks, a registration cross marks where a section begins. Color commits at cell scale. A cell is bone, or it is entirely coral, cobalt, yellow or mint; color is never scattered as accents over a neutral ground. Density alternates: a dense two-stream passage earns a quiet single-measure one.
+
+Confirmed rejections: the old extruded 3D lettermark world and its cyan/red/navy inks (replaced 2026-11-08); pastel fields (the owner wants color that punches); soft shadows and blur; Rubik.
 
 **Key Characteristics:**
-- One heavy navy line (3px on slabs and buttons, 2px on tags) outlines every object, like the mark.
-- Hard diagonal navy extrusion on every interactive or structural slab; no blurred shadows.
-- Grounds are flat. No grid or texture behind content; the brand pattern tile appears behind the home hero, in the footer and on the one badge.
-- Four unmixed colors carry whole regions: cyan fields, white slabs, red actions, navy ink and footing.
-- One heavy rounded geometric family (Rubik) at every size; weight and size do the hierarchy. It matches the mark; never substitute a grotesk (tried and rejected 2026-11-05).
-- Rounded-rectangle geometry everywhere, matched to the letterforms.
-- Motion is physical: things press, stack and tilt, and the one drawn flourish (the red scribble, the diagram lines) draws on. The mark's fills and strokes never animate; it arrives whole.
-- Home hero load-in runs on one clock and resolves by about 1.1s: at 0s the three title lines rise 0.35em, 80ms apart, while the stage slab lands from down-right beside them (its fade is done in the first third of the move); at 0.32s the scribble draws under the third line as it settles; the lede and actions follow at 0.34s and 0.44s; from 0.55s the stickers are thrown onto the settled slab 60ms apart with a slight overshoot (cubic-bezier(0.2, 1.2, 0.4, 1)). The rule: copy and object arrive together, punctuation lands last, and nothing trails after the page looks finished. Reduced motion shows the final state.
-- The brand pattern behind the home hero (and in the footer and badge) is a brick wallpaper: `public/brand/lbn-wallpaper.svg` holds one mark on a tile two rows tall (74.45 x 134.78 units, gap 9.8, navy at 10% fill-opacity), and the CSS paints it twice, the second layer shifted half a step across and one row down (`--tile` sets the scale: 106px in the hero at 0.28 layer opacity, about 92px per mark; 120px in the footer and badge). This is the one size that reads as a pattern: smaller repeats read as noise, a single row of giant marks reads as stripes. The owner's pattern files are not seamless (trailing gap cropped), so the tile is generated from the first mark of `assets/logos/lbn-pattern-row.svg`.
+- One keyline, two hands: thin handwriting for code, heavy outline for objects.
+- Four-ink run on bone: coral, cobalt, yellow, mint, used as whole fields.
+- Misregistration is the only depth: a flat second-color pass offset 4px, never a blurred shadow.
+- Ruled cells, crop ticks and registration marks organise the page like a sheet on the press.
+- The brand line is the material: "Lines of code. Lines of ink. Lines by Nick." Copy keeps returning to the line.
 
 ## Colors
 
-Four unmixed brand colors from the logo, with two tints for secondary text, used at region scale.
+A four-ink run plus black and stock: every color is flat, saturated and used as a field, with black ink doing all the drawing.
 
 ### Primary
-- **LbN Cyan** (`cyan`): the hero field and any region that should feel like the studio's home turf. Always carries navy text.
-- **Signal Red** (`red`): the primary action and one emphasis slab per page. White text at 18px bold or larger only.
-- **Red Deep** (`red-deep`): the pressed and hover state of red surfaces.
+- **Press Ink** (`ink`): every line, all type, every outline and hairline. The one color that is never tinted.
+- **Coral Pass** (`coral`): the action color. Primary buttons, the `Lines by Nick.` line in the hero, the ink-side stream's lead object, one field per page at most. Deep variant for its offset pass and pressed state.
+
+### Secondary
+- **Cobalt Pass** (`cobalt`): the code side. Screens and devices in the isometric drawings, the code-stream field, links in running text. Deep variant for pressed state. Type on cobalt is bone, never ink.
+- **Chrome Yellow** (`yellow`): the emphasis field. Process steps, the close, highlights inside drawings. Always carries ink type.
+
+### Tertiary
+- **Mint Pass** (`mint`): the quiet color field for forms and the merged measure. Always carries ink type.
 
 ### Neutral
-- **Ink Navy** (`navy`): all body text on light surfaces, every outline, every extrusion, and the footer ground.
-- **Navy Soft** (`navy-soft`): secondary text on white or paper (6.5:1). Never gray.
-- **Cyan Deep** (`cyan-deep`): decorative tint only (pattern ink on cyan, hairline rules); never for text.
-- **White** (`white`): slab faces and text on navy or red.
-- **Paper** (`paper`): the page ground between slabs, the palette's light grey-blue (#cbd7dd) so off-white slabs read as objects on it. Muted text on it is `navy-soft` (5.3:1).
-- **Cyan Mist** (`cyan-mist`): secondary text on navy surfaces. Never on light grounds.
-- **Cyan Line** (`cyan-line`): placeholder text lines inside authored demo interfaces only; never real UI.
-- **Cyan Haze** (`cyan-haze`): the footer's secondary text on navy.
+- **Bone Stock** (`bone`): the page ground and default cell fill.
+- **Deep Bone** (`bone-deep`): inner hairlines inside drawings, disabled fills, table rules.
+- **Stock White** (`white`): inputs, tags and the inside of printed blocks that must read lighter than the stock.
+- **Soft Ink** (`ink-soft`): secondary text on bone and white only (7.6:1 on bone). Never on a color field; on a field, secondary text is ink at full strength.
 
 ### Named Rules
-**The Side Rule.** Depth is a solid navy side, never a blur. Depth steps are 4, 8, 14 and 24px, always offset equally on x and y; 3 and 6px are the pressed states of 4 and 8 (and the resting side of tiny demo atoms), 18px is a lifted slab.
-**The Whole-Region Rule.** A brand color owns a region or it does not appear. No cyan accents sprinkled on a white page; the hero is cyan.
-**The Red Budget Rule.** Red is the action color. One red primary button per region plus the persistent nav action, and at most one red slab per page. Red may also appear as ink in small marks (step numbers, bullets, ticker dots, the scribble).
+**The Whole-Cell Rule.** Color owns a cell or it stays off it. A section is bone or it is one color edge to edge; no tinted backgrounds behind a paragraph, no colored borders as decoration.
+
+**The Two-Pass Rule.** Any element may carry at most two colors: its fill and one offset pass. The third color is always ink.
+
+**The Ink-On-Cobalt Rule.** Cobalt is the only field that takes bone type. Every other field takes ink.
 
 ## Typography
 
-**Display Font:** Rubik (with Arial Black fallback)
-**Body Font:** Rubik (with Arial fallback)
+**Display Font:** Unbounded (with Arial Black, sans-serif)
+**Body Font:** Figtree (with Helvetica Neue, Arial, sans-serif)
+**Hand Font:** none. Handwriting appears only as Nick's SVG assets, never as a webfont.
 
-**Character:** Rubik's rounded corners and even stroke echo the letterforms of the mark. One family at weights 400, 500, 700, 800 and 900 keeps the page clean; the pop comes from the jump between 18px body and 96px display.
+**Character:** Unbounded is a wide, heavy geometric grotesk with round terminals; set tight and black it reads like poster lettering pulled through a screen, which lets Nick's loose handwriting stay the only hand on the page. Figtree is a plain, sturdy humanist sans that disappears into running text and forms.
 
 ### Hierarchy
-- **Display** (900, clamp(3rem, 8.2vw, 6.5rem), 0.9): hero headline and the contact close only. The hero's three-line title runs at clamp(2.75rem, 5.6vw, 5.5rem) so each line stays unbroken on desktop.
-- **Headline** (900, clamp(2.125rem, 4.6vw, 3.875rem), 0.98): one per slab. Service slabs lead with their line ("Lines of code.") and carry the service name as a title beneath.
-- **Title** (700, 1.25rem, 1.15): button text, service names, list leads, card titles. Buttons never drop below 1.25rem bold so white on red counts as large text.
-- **Body** (400, 1.125rem, 1.5): paragraphs, max 60ch on this page because the voice is short.
-- **Hero lede** (600, clamp(1.125rem, 1.6vw, 1.5rem), 1.35, max 30em): the one bold offer sentence under the title. Bolder than body on purpose.
-- **Label** (700, 0.8125rem, 0.08em, uppercase): the one kicker, used only inside tags and the route selector, never as an eyebrow over sections.
-- **Small** (500, 0.9375rem): captions under sample visuals and the footer legal line. Demo interfaces inside visuals may go down to 0.75rem because they are pictures, not UI.
+- **Display** (800, clamp(2.5rem, 6.4vw, 5.25rem), 1.02): the hero's three lines and nothing else. Letter-spacing -0.03em. Balanced wrapping.
+- **Headline** (700, clamp(1.75rem, 3.4vw, 2.75rem), 1.08): section titles inside cells.
+- **Title** (600, 1.125rem, 1.2): service names, process step names, form section names.
+- **Lede** (Figtree 500, clamp(1.125rem, 1.5vw, 1.375rem), 1.45): the sentence under a headline, max 30em.
+- **Body** (Figtree 400, 1.0625rem, 1.55): running text, 65ch max.
+- **Label** (Figtree 700, 0.8125rem, 0.08em, uppercase): tags, kicker labels, registration captions, table heads.
 
 ### Named Rules
-**The No-Eyebrow Rule.** Sections open with their headline. The uppercase label lives inside tags, not above headings.
-**The Tight-Top Rule.** Display and headline tracking sits at -0.03em / -0.025em; body is never tracked.
-**The Outlined Word Rule.** At most one display line per page may be set as an outlined word: white fill, 2px navy text-stroke, a 7px stepped navy side (1px text-shadow steps, the same construction as the slabs). It is the mark's construction applied to type, and it loses its force if repeated. It goes on the line that is the point (on the home hero, "Lines by Nick.", which also carries the red scribble), never on a line just because it sits in the middle.
+**The One Hand Rule.** Handwriting is Nick's SVGs only. No script or handwritten webfont anywhere, including inner pages and the footer.
+
+**The Poster Line Rule.** Display and headline lines never exceed 14 words; wrap by meaning, not by measure.
 
 ## Layout
 
-A single centered column, max 1240px, 24px gutters on phones and 48px from 900px up. The page is a vertical stack of slabs separated by generous paper.
+The page is a sheet. A single centred column (max 1240px, 24px gutters, 48px from 900px up) is ruled as a grid of cells with 2px ink rules; adjacent cells share one rule, so the page reads as a ruled sheet rather than a stack of cards. Crop ticks (two 2px ink strokes, 14px long) sit outside the sheet's four corners at desktop widths; a registration cross (a 20px circle with crosshair, 2px ink) marks the top-left of each major section.
 
-The home hero is a two-column grid from 900px: a copy column (title, bold lede 20px beneath it, actions 28px beneath that) and the stage (max 600px) centred against it. On phones the copy wrapper uses `display: contents` and the children are ordered title, compact 360px stage, lede, full-width actions, so the mark is on the first screen. Never use named areas with the spanning stage; the spanning row distribution pushed the lede and actions out of the copy column. Inner pages use a 0.8fr / 1.2fr grid from 900px: an aside (headline, mini steps or facts) beside the main slab (form or pay panel). Inside a slab, content splits into a text column (max 560px) and a visual column at 900px and up, and stacks text first below that.
+The home page is staged as two streams meeting: from the hero down, a code column and an ink column run side by side with one shared rule as the seam between them. Rows pair one code cell with one ink cell. Items begin to cross the seam (a brand object appears on the code side, a glyph on the ink side), and the page then admits a single full-width measure for the merged content: one studio, the process, the close. Inner pages take one stream each: a hero cell pair (copy + printed object), then a two-cell body (aside + form or panel).
 
-Service slabs stack physically: each is `position: sticky` with a top offset of 112px plus 16px per slab, so as the visitor scrolls each new slab slides up over the previous one and the stack builds like the extruded letters. Stacking is enabled only when the viewport is at least 900px wide and 760px tall, because a slab taller than the viewport would hide its own lower half; below that the slabs simply flow.
-
-Below 600px the authored visuals re-flow: the brand sheet goes single column, the Salesforce flow turns vertical, and the "two shops" diagrams stack top to bottom with a vertical link.
-
-Spacing rhythm: 8 / 16 / 24 / 48 / 96 / 160px. Section gaps are 96px on phones and 160px on desktop. Inside a slab, more space above a heading than below it.
+Spacing steps: 8, 16, 24, 48, 96. Cells pad 48px on desktop and 24px on phones. More space above a headline than below it (48 over, 16 under). Below 900px the two streams stack: code cells first, then ink cells, each row keeping its pair adjacent; crop ticks are dropped and rules go to 2px throughout.
 
 ## Elevation & Depth
 
-Depth is structural, never ambient. Every slab, button, tag and visual block carries a hard navy extrusion drawn as a stack of 1px-stepped box-shadows along the 45° diagonal, so the side reads as a solid face rather than a flat offset. There are no blurred shadows anywhere.
-
-### Shadow Vocabulary
-Tokens `--ex-1` through `--ex-24` exist in `app/extrusion.css`; only these roles are used:
-- **ex-4** (`--ex-4`): tags, chips, small controls.
-- **ex-8** (`--ex-8`): buttons, nav bar, visual sub-blocks.
-- **ex-14** (`--ex-14`): section slabs.
-- **ex-24** (`--ex-24`): the hero mark's stage and the contact close.
+No shadows anywhere. Depth is misregistration: a flat second-color pass under an element, offset 4px right and 4px down, with no blur. It belongs to buttons, printed blocks, and the isometric drawings' fills. Hover pulls the pass to 6px; press collapses it to 0 and moves the element 4px into the pass. Body copy, forms, hairlines and inner-page cells are always in register.
 
 ### Named Rules
-**The Press Rule.** Hover moves an element 2px toward its side and shortens the side by the same amount; active moves it fully onto its side (extrusion 0). The object is pressed, not lifted.
+**The In-Register Rule.** Only buttons, printed blocks and drawings may be out of register. Text is never offset or doubled.
+
+**The No-Blur Rule.** `box-shadow` with any blur or spread is a defect. The only legal shadow is a hard offset of a palette color.
 
 ## Shapes
 
-Rounded rectangles only, with radii that read as the mark's corners at each scale: 8px tags, 14px buttons, 22px slabs, 32px the hero stage. Outlines are 3px navy on slabs and buttons and 2px on tags and demo atoms. Hand-drawn strokes are allowed in one place: the red scribble underline, a single SVG path with round caps. No pill buttons, no circles except the pointer-tilt indicator, no diagonal cuts.
+Square by default. Cells, fields and inputs have 0 radius. Buttons, tags and printed blocks have a 3px radius, enough to read as cut paper rather than CSS. Isometric drawings use a 30-degree projection with heavy 3px ink keylines, rounded joins, and flat fills; the handwritten glyphs keep their native irregular strokes and are never outlined, filled, or recolored away from ink. Hairline rules are 2px ink. There are no pills.
 
 ## Components
 
 ### Buttons
-- **Shape:** rounded 14px, 3px navy outline, ex-8 extrusion.
-- **Primary:** red face, white title text at 1.25rem bold, 14px 28px padding.
-- **Secondary:** white face, navy text, same geometry.
-- **Hover / Focus:** press 2px (The Press Rule); focus-visible adds a 3px navy ring outside the outline, cyan on navy grounds (footer, navy slabs, ticker).
-- **Disabled:** paper face, navy-soft text, extrusion 0, no press.
-
-### Slabs
-- **Corner Style:** 22px.
-- **Background:** white by default; one red and one navy slab per page at most, cyan for one service slab, one comparison panel and the mobile menu sheet.
-- **Shadow Strategy:** ex-14.
-- **Border:** 3px navy.
-- **Internal Padding:** 32px on phones, 48px to 64px on desktop.
+- **Shape:** cut-paper rectangle (3px radius), 2px ink keyline, Figtree 700 at 1.0625rem, 16px 28px padding, min height 54px.
+- **Primary:** coral fill, ink text, coral-deep pass offset 4px 4px. The only coral control in a cell.
+- **Keyline:** bone fill, ink text, ink pass offset 4px 4px. Secondary actions.
+- **On cobalt:** bone fill, ink text; never a coral button on a cobalt field.
+- **Hover / Focus:** pass extends to 6px 6px; focus-visible adds a 3px ink outline offset 3px (bone outline on cobalt).
+- **Press:** element translates 4px 4px and the pass collapses to 0.
+- **Disabled:** bone-deep fill, ink-soft text, no pass, no keyline change.
 
 ### Tags
-- White face, navy label text, 8px radius, ex-4. On cyan or red fields the face stays white.
+- **Style:** stock white fill, 2px ink keyline, 3px radius, Label type, 8px 12px padding. Color variants take the field colors as fill with ink text (bone text on cobalt).
+- **State:** a toggled tag (form chips) takes the yellow fill.
+
+### Cells / Containers
+- **Corner Style:** square.
+- **Background:** bone, or one whole field color.
+- **Rules:** 2px ink on shared edges; no double borders.
+- **Internal Padding:** 48px desktop, 24px phone.
+- **Marks:** optional registration cross at top-left; optional Label caption at top-right ("01 / Code", "02 / Ink").
+
+### Inputs / Fields
+- **Style:** stock white fill, 2px ink keyline, 0 radius, 14px 16px padding, Figtree 400 at 1.0625rem, Figtree 700 labels above.
+- **Focus:** keyline stays ink; a 3px cobalt outline offset 2px.
+- **Error:** keyline turns coral-deep, message in coral-deep below the field.
+- **Disabled:** bone-deep fill.
 
 ### Navigation
-- A white slab bar with ex-8, sticky at 16px from the top. Logo mark at 40px plus the wordmark "lbn.design" set like the headline (Rubik 900, -0.03em, 1.5rem); links in 500 weight navy; primary button at the end. On phones the links collapse to a single "Menu" button that opens a cyan slab list.
+- A ruled bar at the top of the sheet: `<lines by nick>` handwritten logo at left (ink SVG, 170px wide), text links in Figtree 700, a coral primary button at right. On phones the links collapse behind a keyline "Menu" button into a full-width ruled sheet. Active link carries a 2px ink underline offset 6px.
 
-### Route Selector (signature component)
-- A row of toggle tags reading "I need: a website / a mobile app / Salesforce help / a brand". Selecting one lifts the matching service slabs 4px off the page (extrusion grows to 18px) and adds a cyan corner tag reading "On your route"; the toggle face turns cyan and presses onto its side. Pure client state, no persistence.
+### Printed Object (signature)
+An isometric SVG drawing (own component per subject) built from three layers: a color-pass group offset 4px 4px in a deep variant, a flat fill group, and the ink keyline group on top. On load the pass and fill register onto the keyline (see motion). Drawings are authored in-house and labelled synthetic in code; any may be replaced by Nick's own.
 
-### Page Hero (inner pages)
-- The home hero's grammar at a shorter height: cyan field, 3px navy rule beneath, kicker tag, display title with one outlined accent word (white fill, 2px navy text-stroke, 4px hard shadow), lede, optional actions, and a white `slab--xl` of page-specific art on the right that stacks under the copy on phones. Padding 120/64 on phones, 168/112 from 900px.
+### Glyph Scatter (signature)
+Nick's handwritten code glyphs placed as ink SVG images inside a cell, sized 40 to 160px, rotated up to 12 degrees, never overlapping type. Used as the code stream's texture and as section punctuation; at most five glyphs per cell.
 
-### Form Fields
-- Label 700 above the control; optional marker in navy-soft. Controls: paper face, 2px navy outline, 10px radius, 52px min height, Rubik at 1.0625rem. Hover turns the face white; focus-visible shows a white-then-cyan double ring (3px + 3px) and no outline; invalid-after-interaction turns the outline red with a soft red ring. Selects use a drawn navy chevron. Fields never carry an extrusion; only the submit buttons do.
-- Chip choices reuse the route toggle (tag pill that presses onto its side and turns cyan when selected, `aria-pressed`).
-- Submission composes a mailto and offers "Copy instead"; the note beneath is `aria-live`.
-
-### Pay Panel
-- A white slab with headline, one sentence, the primary button, a muted setup note while the Stripe link is unset, and three cyan-square trust bullets.
-
-### Drawn Line (signature component)
-- A straight SVG path that draws itself on when scrolled into view (navy 3px, or red 4px inside the cyan "At LBN" panel); the dashed variant fades in. Used for the two-shops versus one-line diagrams. On narrow screens it becomes a plain vertical bar.
+### Motion
+One authored moment: the pull. On first paint the keyline is present; color passes register onto it in order, coral, cobalt, yellow, mint, each translating from -6px -6px with opacity 0 to 0 0 with opacity 1 over 0.5s with an exponential ease-out, staggered 90ms, done within 1s. Hover and press on buttons move the pass only. Reduced motion renders everything in register with no animation.
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** draw depth as a navy diagonal side at 4 / 8 / 14 / 24px.
-- **Do** let cyan own the hero and navy own the footer; color at region scale.
-- **Do** keep the mark's outline weight: 3px navy on every slab and control, 2px on tags.
-- **Do** let line devices (scribble, diagram links) draw on when they enter the viewport; respect prefers-reduced-motion by showing the final state. Never animate the mark's fills or strokes.
-- **Do** author visuals (sample interfaces, boards, sticker sheets) out of the same slab vocabulary and label synthetic samples.
+- **Do** use Nick's SVG assets for every piece of handwriting, scaled but never recolored away from ink.
+- **Do** draw new illustrations in the Dave Arcade register: 3px uniform ink outline, flat saturated fills, isometric projection, no gradients, no inner shading.
+- **Do** make a section one color edge to edge, or bone.
+- **Do** keep "Lines of code. Lines of ink. Lines by Nick." as the hero copy and let section copy echo the line.
+- **Do** share one 2px rule between adjacent cells.
 
 ### Don't:
-- **Don't** use blurred shadows, glass, gradients or gradient text.
-- **Don't** put body text in white on `red`; use large bold text or switch the surface to navy.
-- **Don't** add a fifth hue. Yellow, green and purple are outside the mark.
-- **Don't** copy the reference illustrator's isometric scenes or dark grounds; take only the discipline of one heavy line.
-- **Don't** introduce a second typeface. Rubik is the mark's face; a neutral grotesk was tried and rejected.
-- **Don't** put an uppercase eyebrow above section headings.
+- **Don't** use a blurred shadow, a gradient, glass, or a tinted panel behind text.
+- **Don't** use pastel tints of the inks; a color is at full strength or absent.
+- **Don't** offset or double any text; misregistration belongs to blocks and drawings only.
+- **Don't** reintroduce the extruded lettermark, its cyan/red/navy inks, or Rubik.
+- **Don't** set a handwritten or script webfont; the only hand on the page is Nick's.
+- **Don't** copy Dave Arcade's subjects (arcade cabinets, pixel art) or Plan C's palette; adapt the register and the ruled-sheet grammar through this studio's own objects.

@@ -91,8 +91,8 @@ export function BriefForm({ variant = "brief" }: { variant?: Variant }) {
 
   if (status === "sent") {
     return (
-      <div className="form form--sent slab" role="status">
-        <span className="tag tag--cyan">Sent</span>
+      <div className="form form--sent" role="status">
+        <span className="tag tag--mint">Sent</span>
         <h3 className="headline form__sent-head">Got it.</h3>
         <p className="form__sent-text">
           {variant === "brief"
@@ -106,7 +106,7 @@ export function BriefForm({ variant = "brief" }: { variant?: Variant }) {
 
   return (
     <form
-      className="form slab"
+      className="form"
       name={variant}
       method="POST"
       action="/__forms.html"
@@ -149,7 +149,7 @@ export function BriefForm({ variant = "brief" }: { variant?: Variant }) {
                   <button
                     key={n}
                     type="button"
-                    className={`tag route__toggle${on ? " tag--cyan" : ""}`}
+                    className="tag tag--toggle"
                     aria-pressed={on}
                     onClick={() => toggleNeed(n)}
                   >

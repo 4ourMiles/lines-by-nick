@@ -1,84 +1,30 @@
-"use client";
+import { Glyph } from "./Glyph";
+import { RegMark, Cap } from "./Marks";
+import { IsoScreens, IsoPaint } from "./Iso";
+import { START_HREF, CONTACT_PAGE_HREF } from "./contact";
 
-import { useRef } from "react";
-import { CONTACT_PAGE_HREF, START_HREF } from "./contact";
-import { Mark } from "./Mark";
-
-const STICKERS: {
-  text: string;
-  tone?: "cyan" | "red" | "navy";
-  style: React.CSSProperties;
-}[] = [
-  { text: "Web apps", style: { top: "-6%", left: "6%", "--z": "84px" } as React.CSSProperties },
-  { text: "Mobile apps", tone: "navy", style: { top: "9%", right: "-9%", "--z": "90px" } as React.CSSProperties },
-  { text: "Brand + logo", tone: "red", style: { top: "46%", left: "-13%", "--z": "110px" } as React.CSSProperties },
-  { text: "Salesforce", tone: "cyan", style: { bottom: "16%", right: "-10%", "--z": "96px" } as React.CSSProperties },
-  { text: "AI + MCP", style: { bottom: "-8%", left: "26%", "--z": "80px" } as React.CSSProperties },
-  { text: "SEO", tone: "navy", style: { top: "17%", left: "-7%", "--z": "120px" } as React.CSSProperties },
-];
-
+/**
+ * Hero: the headline cell across the seam, then the two streams start,
+ * a cobalt code cell and a coral ink cell sharing one rule.
+ */
 export function Hero() {
-  const stageRef = useRef<HTMLDivElement>(null);
-  const frame = useRef<number | null>(null);
-
-  const onMove = (e: React.PointerEvent<HTMLElement>) => {
-    const stage = stageRef.current;
-    if (!stage) return;
-    if (e.pointerType !== "mouse") return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width - 0.5;
-    const y = (e.clientY - rect.top) / rect.height - 0.5;
-    if (frame.current) cancelAnimationFrame(frame.current);
-    frame.current = requestAnimationFrame(() => {
-      stage.style.setProperty("--rx", `${(-y * 14).toFixed(2)}deg`);
-      stage.style.setProperty("--ry", `${(x * 18).toFixed(2)}deg`);
-    });
-  };
-
-  const onLeave = () => {
-    const stage = stageRef.current;
-    if (!stage) return;
-    stage.style.setProperty("--rx", "0deg");
-    stage.style.setProperty("--ry", "0deg");
-  };
-
   return (
-    <section
-      id="top"
-      className="hero hero-world"
-      onPointerMove={onMove}
-      onPointerLeave={onLeave}
-    >
-      <div className="container hero__grid">
+    <>
+      <section className="cell hero span-2" id="top">
+        <RegMark />
+        <Cap>00 / Lines</Cap>
         <div className="hero__copy">
           <h1 className="display hero__title">
-            <span className="hero__line hero__line--1">Lines of code.</span>
-            <span className="hero__line hero__line--2">Lines of ink.</span>
-            <span className="hero__line hero__line--3">
-              <span className="scribble">
-                Lines by Nick.
-                <svg
-                  className="scribble__stroke"
-                  viewBox="0 0 400 24"
-                  preserveAspectRatio="none"
-                  aria-hidden="true"
-                >
-                  <path
-                    pathLength={1}
-                    d="M4 16 C 80 4, 150 22, 230 10 S 360 6, 396 14"
-                  />
-                </svg>
-              </span>
+            <span className="hero__line">Lines of code.</span>
+            <span className="hero__line">Lines of ink.</span>
+            <span className="hero__line">
+              <span className="block block--coral hero__accent">Lines by Nick.</span>
             </span>
           </h1>
-
-          <p className="hero__lede">
-            Software that ships. Brands that stick. One studio for both, so
-            there is no hand-off between the people who design it and the
-            people who build it.
+          <p className="lede hero__lede">
+            One studio that writes the software and draws the brand, so nothing gets lost
+            between the two.
           </p>
-
           <div className="hero__actions">
             <a href={START_HREF} className="btn btn--primary">
               Start a project
@@ -88,23 +34,49 @@ export function Hero() {
             </a>
           </div>
         </div>
-
-        <div className="hero__stage-wrap">
-          <div ref={stageRef} className="hero__stage slab slab--xl">
-            <Mark className="hero__mark" layered />
-            {STICKERS.map((s) => (
-              <span
-                key={s.text}
-                className={`tag hero__sticker${s.tone ? ` tag--${s.tone}` : ""}`}
-                style={s.style}
-                aria-hidden="true"
-              >
-                {s.text}
-              </span>
-            ))}
-          </div>
+        <div className="hero__glyphs" aria-hidden="true">
+          <Glyph name="left-curl-bracket" w={150} rot={-4} className="hero__g hero__g--1" />
+          <Glyph name="semi-colon" w={54} rot={8} className="hero__g hero__g--2" />
+          <Glyph name="star" w={88} rot={-10} className="hero__g hero__g--3" />
+          <Glyph name="equals" w={96} rot={6} className="hero__g hero__g--4" />
+          <Glyph name="right-curley-bracket" w={150} rot={5} className="hero__g hero__g--5" />
+          <Glyph name="cursor" w={46} rot={-6} className="hero__g hero__g--6" />
         </div>
-      </div>
-    </section>
+      </section>
+
+      <section className="cell cell--cobalt stream" id="code">
+        <RegMark />
+        <Cap>01 / Code</Cap>
+        <div className="stream__art">
+          <IsoScreens order={1} />
+        </div>
+        <div className="stream__scatter" aria-hidden="true">
+          <Glyph name="left-angle" w={64} rot={-8} className="stream__g stream__g--a" />
+          <Glyph name="forward-slash" w={30} rot={4} className="stream__g stream__g--b" />
+          <Glyph name="right-angle" w={64} rot={6} className="stream__g stream__g--c" />
+        </div>
+        <h2 className="headline stream__head">Lines of code.</h2>
+        <p className="lede stream__lede">
+          Web apps, mobile apps, Salesforce, Microsoft and AI, written to run your business and
+          keep running.
+        </p>
+      </section>
+
+      <section className="cell cell--coral stream" id="ink">
+        <RegMark />
+        <Cap>02 / Ink</Cap>
+        <div className="stream__art">
+          <IsoPaint order={0} />
+        </div>
+        <div className="stream__scatter" aria-hidden="true">
+          <Glyph name="ampersand" w={72} rot={6} className="stream__g stream__g--a" />
+          <Glyph name="at" w={60} rot={-6} className="stream__g stream__g--c" />
+        </div>
+        <h2 className="headline stream__head">Lines of ink.</h2>
+        <p className="lede stream__lede">
+          Logos, brands, illustration and interfaces, drawn so people remember them.
+        </p>
+      </section>
+    </>
   );
 }

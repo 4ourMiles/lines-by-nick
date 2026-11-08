@@ -2,23 +2,23 @@
 version: 1
 slug: "app-page-tsx"
 primary_target: "app/page.tsx"
-related_targets: []
+related_targets: ["app/start-a-project/page.tsx","app/contact/page.tsx","app/pay/page.tsx"]
 ---
 
 # Surface: home page (app/page.tsx)
 
 Mode: Persuade.
 
-Audience and job: SMB owners and founders comparing studios; decide in under a minute whether LBN can build and brand their thing, then reach out.
+Audience and job: SMB owners and founders comparing studios; decide in under a minute whether LBN can both build and draw their thing, then start a project.
 
-Action: "Start a project" (mailto placeholder for now; no back end). Secondary: jump to services.
+Action: "Start a project" (route to the brief form). Secondary: "Contact".
 
-Proof and content: no client proof exists. Services are proven by demonstration: each service slab carries an authored visual built from the brand's slab vocabulary, labelled as a sample where a visitor could mistake it for client work; the brand slab shows the studio's real mark.
+Proof and content: no client proof exists. Proof is demonstration: the studio's own hand (Nick's handwritten logo and code glyphs) and in-house isometric drawings of what it builds and draws, labelled synthetic in code. Service lines: web apps, mobile apps, Salesforce, Microsoft, AI + MCP on the code side; brand + logo, illustration, UI/UX, CMS + SEO (the words) on the ink side.
 
-Constraints: logo binding; clean, pop, bold; Next.js; no working forms required; no textures or grids on grounds (user, 2026-11-05).
+Constraints: hero copy "Lines of code. Lines of ink. Lines by Nick." verbatim; logo and glyph assets binding; colors punch, no pastels; Netlify Forms; legal strip on every page.
 
-Direction: "Lines by Nick". The page is built like the mark: one heavy navy line outlines everything, then flat colour fills it. Hero: cyan field, three-line title "Lines of code. / Lines of ink. / Lines by Nick." with a red drawn underline, the mark drawing itself on then filling, tilting as a two-layer solid. Services are four stacking slabs each led by its kind of line (code, business, sight, ink). "Two shops versus one line" diagrams use drawn-on lines. Close: "Drop us a line." in a red slab with the mark bleeding out.
+Direction: "The Screen-Print Pull" (DESIGN.md), staged as two streams meeting. The page is a ruled sheet. Hero cell: the three display lines with "Lines by Nick." on a coral printed block, lede, two actions, big handwritten glyphs as punctuation. Below it the two streams start: a cobalt "01 / Code" cell and a coral "02 / Ink" cell with isometric drawings, sharing one seam. Service rows pair a code cell with an ink cell down the seam; by the third row each side carries a mark from the other. The sheet then admits one measure: a mint "one line, start to finish" cell with the <n> mark, a yellow three-cell process strip, a bone close "Drop us a line.", an ink footer.
 
-Memorable moment: the mark drawing itself in line and filling with colour.
+Memorable moment: the pull. Keyline is present on first paint; color passes register onto drawings and buttons in order, coral, cobalt, yellow, mint, within one second.
 
-Unresolved: real email address, client proof, team / studio copy, legal footer links, whether "Lines by Nick" is the public tagline.
+Unresolved: Stripe link; whether Nick replaces any in-house drawings with his own.

@@ -1,129 +1,36 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-05T22:52:41.722562+00:00",
-  "title": "Design System: LBN Design",
+  "generatedAt": "2026-11-08T20:00:00Z",
+  "title": "Design System: Lines by Nick",
   "extensions": {
     "colorMeta": {
-      "cyan": {
-        "role": "primary",
-        "displayName": "LbN Cyan",
-        "canonical": "#4ea3b5",
-        "tonalRamp": [
-          "#002b33",
-          "#005566",
-          "#008099",
-          "#00abcc",
-          "#4ea3b5",
-          "#4de6ff",
-          "#99f1ff",
-          "#dff5fb"
-        ]
-      },
-      "red": {
-        "role": "primary",
-        "displayName": "Signal Red",
-        "canonical": "#eb5153",
-        "tonalRamp": [
-          "#330000",
-          "#660101",
-          "#990202",
-          "#d10000",
-          "#eb5153",
-          "#ff4d4d",
-          "#ff9999",
-          "#ffe5e5"
-        ]
-      },
-      "navy": {
-        "role": "neutral",
-        "displayName": "Ink Navy",
-        "canonical": "#0f2b3e",
-        "tonalRamp": [
-          "#0f2b3e",
-          "#0b3a5c",
-          "#106587",
-          "#1f85ad",
-          "#279bcd",
-          "#7cc5e3",
-          "#c7dfe8",
-          "#cbd7dd"
-        ]
-      },
-      "white": {
-        "role": "neutral",
-        "displayName": "White",
-        "canonical": "#ffffff",
-        "tonalRamp": [
-          "#cbd7dd",
-          "#ffffff"
-        ]
-      }
+      "ink": { "role": "neutral", "displayName": "Press Ink", "canonical": "#231f20", "tonalRamp": ["#141213", "#231f20", "#3a3536", "#5a5553", "#7d7876", "#a39e9b", "#cbc6c2", "#eee9e3"] },
+      "coral": { "role": "primary", "displayName": "Coral Pass", "canonical": "#ff5a3c", "tonalRamp": ["#5a1a10", "#8f2616", "#d93c21", "#ff5a3c", "#ff7a62", "#ff9d8a", "#ffc2b5", "#ffe6e0"] },
+      "cobalt": { "role": "secondary", "displayName": "Cobalt Pass", "canonical": "#2b4cf2", "tonalRamp": ["#0d1a5c", "#15278f", "#1d36b8", "#2b4cf2", "#5670f5", "#8296f8", "#b0bdfb", "#dfe4fd"] },
+      "yellow": { "role": "secondary", "displayName": "Chrome Yellow", "canonical": "#ffc940", "tonalRamp": ["#5c4300", "#946d08", "#e0a81a", "#ffc940", "#ffd566", "#ffe08f", "#ffecb8", "#fff7e0"] },
+      "mint": { "role": "tertiary", "displayName": "Mint Pass", "canonical": "#8be0c1", "tonalRamp": ["#174a38", "#2a7a5c", "#4cbf98", "#8be0c1", "#a6e8d0", "#c1efde", "#dbf6ec", "#f0fbf7"] },
+      "bone": { "role": "neutral", "displayName": "Bone Stock", "canonical": "#f3efe4", "tonalRamp": ["#4a463d", "#7a745f", "#a9a28a", "#cfc8b2", "#e7e0cf", "#f3efe4", "#f8f5ee", "#fdfcf9"] },
+      "white": { "role": "neutral", "displayName": "Stock White", "canonical": "#fffdf8", "tonalRamp": ["#5a5750", "#8a867c", "#b5b0a5", "#d8d4cb", "#ece9e2", "#f6f4ee", "#fbfaf6", "#fffdf8"] }
     },
     "typographyMeta": {
-      "display": {
-        "displayName": "Display",
-        "purpose": "Hero headline and contact close."
-      },
-      "headline": {
-        "displayName": "Headline",
-        "purpose": "One per slab."
-      },
-      "body": {
-        "displayName": "Body",
-        "purpose": "Paragraphs, max 60ch."
-      },
-      "label": {
-        "displayName": "Label",
-        "purpose": "Inside tags and toggles only."
-      }
+      "display": { "displayName": "Display", "purpose": "The hero's three lines only. Unbounded 800, tight." },
+      "headline": { "displayName": "Headline", "purpose": "Section titles inside cells." },
+      "title": { "displayName": "Title", "purpose": "Service and step names." },
+      "lede": { "displayName": "Lede", "purpose": "The sentence under a headline, max 30em." },
+      "body": { "displayName": "Body", "purpose": "Running text and forms, 65ch." },
+      "label": { "displayName": "Label", "purpose": "Tags, captions, registration notes. Uppercase, tracked." }
     },
     "shadows": [
-      {
-        "name": "ex-4",
-        "value": "1px 1px 0 #0f2b3e, 2px 2px 0 #0f2b3e, 3px 3px 0 #0f2b3e, 4px 4px 0 #0f2b3e",
-        "purpose": "Tags and small controls."
-      },
-      {
-        "name": "ex-8",
-        "value": "1px 1px 0 #0f2b3e, 2px 2px 0 #0f2b3e, 3px 3px 0 #0f2b3e, 4px 4px 0 #0f2b3e, 5px 5px 0 #0f2b3e, 6px 6px 0 #0f2b3e, 7px 7px 0 #0f2b3e, 8px 8px 0 #0f2b3e",
-        "purpose": "Buttons, nav bar, visual sub-blocks."
-      },
-      {
-        "name": "ex-14",
-        "value": "1px-stepped diagonal to 14px 14px 0 #0f2b3e",
-        "purpose": "Section slabs."
-      },
-      {
-        "name": "ex-24",
-        "value": "1px-stepped diagonal to 24px 24px 0 #0f2b3e",
-        "purpose": "Hero stage and contact close."
-      }
+      { "name": "pass", "value": "4px 4px 0 var(--pass-color)", "purpose": "The misregistered color pass under buttons and printed blocks. Hard offset, no blur, palette color only." },
+      { "name": "pass-hover", "value": "6px 6px 0 var(--pass-color)", "purpose": "Hover pulls the pass further out of register." }
     ],
     "motion": [
-      {
-        "name": "ease-out",
-        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
-        "purpose": "Every press and tilt."
-      },
-      {
-        "name": "press",
-        "value": "transform 0.18s, box-shadow 0.18s",
-        "purpose": "Hover moves 2px onto the side; active moves fully onto it."
-      }
+      { "name": "ease-out", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Every transition and the register-in." },
+      { "name": "register", "value": "0.5s, staggered 90ms by --i", "purpose": "The pull: color passes slide from -6px -6px onto the keyline on first paint." }
     ],
     "breakpoints": [
-      {
-        "name": "sm",
-        "value": "600px"
-      },
-      {
-        "name": "md",
-        "value": "900px"
-      },
-      {
-        "name": "lg",
-        "value": "1100px"
-      }
+      { "name": "desktop", "value": "900px" },
+      { "name": "form-2col", "value": "700px" }
     ]
   },
   "components": [
@@ -131,91 +38,84 @@
       "name": "Primary Button",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "The single red action.",
-      "html": "<a class=\"ds-btn ds-btn-primary\" href=\"#\">Start a project</a>",
-      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:14px 26px;font:700 1.125rem/1 Rubik,Arial,sans-serif;letter-spacing:-0.01em;text-decoration:none;color:#0f2b3e;background:#fff;border:2px solid #0f2b3e;border-radius:14px;box-shadow:1px 1px 0 #0f2b3e,2px 2px 0 #0f2b3e,3px 3px 0 #0f2b3e,4px 4px 0 #0f2b3e,5px 5px 0 #0f2b3e,6px 6px 0 #0f2b3e,7px 7px 0 #0f2b3e,8px 8px 0 #0f2b3e;transition:transform .18s cubic-bezier(.16,1,.3,1),box-shadow .18s cubic-bezier(.16,1,.3,1),background-color .18s}.ds-btn:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 #0f2b3e,2px 2px 0 #0f2b3e,3px 3px 0 #0f2b3e,4px 4px 0 #0f2b3e,5px 5px 0 #0f2b3e,6px 6px 0 #0f2b3e}.ds-btn:active{transform:translate(8px,8px);box-shadow:none}.ds-btn:focus-visible{outline:3px solid #0f2b3e;outline-offset:4px}.ds-btn-primary{background:#eb5153;color:#fff}.ds-btn-primary:hover{background:#d10000}"
+      "description": "Coral printed block with a coral-deep pass. The one coral control in a cell.",
+      "html": "<button class=\"ds-btn ds-btn--primary\">Start a project</button>",
+      "css": ".ds-btn { --pass-color: #231f20; display: inline-flex; align-items: center; justify-content: center; min-height: 54px; padding: 14px 28px; font-family: Figtree, Helvetica Neue, Arial, sans-serif; font-weight: 700; font-size: 17px; line-height: 1; color: #231f20; background: #f3efe4; border: 2px solid #231f20; border-radius: 3px; box-shadow: 4px 4px 0 var(--pass-color); cursor: pointer; transition: transform 0.16s cubic-bezier(0.16,1,0.3,1), box-shadow 0.16s cubic-bezier(0.16,1,0.3,1); } .ds-btn--primary { --pass-color: #d93c21; background: #ff5a3c; } .ds-btn:hover { box-shadow: 6px 6px 0 var(--pass-color); } .ds-btn:active { transform: translate(4px, 4px); box-shadow: 0 0 0 var(--pass-color); } .ds-btn:focus-visible { outline: 3px solid #231f20; outline-offset: 3px; }"
     },
     {
-      "name": "Secondary Button",
+      "name": "Keyline Button",
       "kind": "button",
-      "refersTo": "button-secondary",
-      "description": "White slab button.",
-      "html": "<a class=\"ds-btn\" href=\"#\">See what we do</a>",
-      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:14px 26px;font:700 1.125rem/1 Rubik,Arial,sans-serif;text-decoration:none;color:#0f2b3e;background:#fff;border:2px solid #0f2b3e;border-radius:14px;box-shadow:1px 1px 0 #0f2b3e,2px 2px 0 #0f2b3e,3px 3px 0 #0f2b3e,4px 4px 0 #0f2b3e,5px 5px 0 #0f2b3e,6px 6px 0 #0f2b3e,7px 7px 0 #0f2b3e,8px 8px 0 #0f2b3e;transition:transform .18s,box-shadow .18s}.ds-btn:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 #0f2b3e,2px 2px 0 #0f2b3e,3px 3px 0 #0f2b3e,4px 4px 0 #0f2b3e,5px 5px 0 #0f2b3e,6px 6px 0 #0f2b3e}"
+      "refersTo": "button-keyline",
+      "description": "Bone block with an ink pass. Secondary actions.",
+      "html": "<button class=\"ds-btn\">Contact</button>",
+      "css": ".ds-btn { --pass-color: #231f20; display: inline-flex; align-items: center; justify-content: center; min-height: 54px; padding: 14px 28px; font-family: Figtree, Helvetica Neue, Arial, sans-serif; font-weight: 700; font-size: 17px; line-height: 1; color: #231f20; background: #f3efe4; border: 2px solid #231f20; border-radius: 3px; box-shadow: 4px 4px 0 var(--pass-color); cursor: pointer; transition: transform 0.16s, box-shadow 0.16s; } .ds-btn:hover { box-shadow: 6px 6px 0 var(--pass-color); } .ds-btn:active { transform: translate(4px, 4px); box-shadow: none; }"
     },
     {
       "name": "Tag",
       "kind": "chip",
       "refersTo": "tag",
-      "description": "Uppercase label on a small slab; toggles use aria-pressed.",
-      "html": "<span class=\"ds-tag\">React Native</span> <button class=\"ds-tag ds-tag-on\" aria-pressed=\"true\">a website</button>",
-      "css": ".ds-tag{display:inline-flex;align-items:center;gap:8px;padding:9px 12px;background:#fff;color:#0f2b3e;border:2px solid #0f2b3e;border-radius:8px;box-shadow:1px 1px 0 #0f2b3e,2px 2px 0 #0f2b3e,3px 3px 0 #0f2b3e,4px 4px 0 #0f2b3e;font:700 .8125rem/1 Rubik,Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;cursor:default}.ds-tag-on{background:#4ea3b5;transform:translate(4px,4px);box-shadow:none}"
+      "description": "Stock-white keyline tag in Label type; color variants take a field color.",
+      "html": "<span class=\"ds-tag\">React</span> <span class=\"ds-tag ds-tag--yellow\">Selected</span>",
+      "css": ".ds-tag { display: inline-flex; align-items: center; padding: 8px 12px; background: #fffdf8; color: #231f20; border: 2px solid #231f20; border-radius: 3px; font-family: Figtree, Arial, sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; } .ds-tag--yellow { background: #ffc940; }"
     },
     {
-      "name": "Slab",
+      "name": "Cell",
       "kind": "card",
-      "refersTo": "slab",
-      "description": "The structural container; white, cyan or navy face with a 14px navy side.",
-      "html": "<div class=\"ds-slab\"><h3>Salesforce solutions</h3><p>Set up, clean up or extend Salesforce so your team actually uses it.</p></div>",
-      "css": ".ds-slab{background:#4ea3b5;color:#0f2b3e;border:2px solid #0f2b3e;border-radius:22px;padding:32px;box-shadow:1px 1px 0 #0f2b3e,2px 2px 0 #0f2b3e,3px 3px 0 #0f2b3e,4px 4px 0 #0f2b3e,5px 5px 0 #0f2b3e,6px 6px 0 #0f2b3e,7px 7px 0 #0f2b3e,8px 8px 0 #0f2b3e,9px 9px 0 #0f2b3e,10px 10px 0 #0f2b3e,11px 11px 0 #0f2b3e,12px 12px 0 #0f2b3e,13px 13px 0 #0f2b3e,14px 14px 0 #0f2b3e;font-family:Rubik,Arial,sans-serif}.ds-slab h3{margin:0 0 12px;font-weight:800;font-size:2rem;line-height:.98;letter-spacing:-.025em}.ds-slab p{margin:0;font-size:1.125rem;line-height:1.5}"
+      "refersTo": "cell",
+      "description": "A ruled cell on the sheet with a registration mark and a caption. Bone or one whole field color.",
+      "html": "<div class=\"ds-cell\"><svg class=\"ds-cell__reg\" viewBox=\"0 0 20 20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\"><circle cx=\"10\" cy=\"10\" r=\"6.5\"/><path d=\"M10 0v20M0 10h20\"/></svg><span class=\"ds-cell__cap\">01 / Code</span><h3 class=\"ds-cell__title\">Web apps</h3><p>Customer portals, dashboards, booking and ordering.</p></div>",
+      "css": ".ds-cell { position: relative; padding: 56px 48px 48px; background: #f3efe4; color: #231f20; border: 2px solid #231f20; font-family: Figtree, Arial, sans-serif; } .ds-cell__reg { position: absolute; top: 14px; left: 14px; width: 20px; height: 20px; } .ds-cell__cap { position: absolute; top: 18px; right: 18px; font-weight: 700; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.85; } .ds-cell__title { margin: 0 0 8px; font-family: Unbounded, Arial Black, sans-serif; font-weight: 600; font-size: 22px; letter-spacing: -0.01em; } .ds-cell p { margin: 0; max-width: 44ch; }"
     },
     {
-      "name": "Nav bar",
-      "kind": "nav",
-      "refersTo": "slab",
-      "description": "Sticky white slab bar with wordmark, links and the primary action.",
-      "html": "<nav class=\"ds-nav\"><span class=\"ds-nav-brand\">LBN Design</span><a href=\"#\">Services</a><a href=\"#\">Why LBN</a><a href=\"#\">Contact</a><a class=\"ds-nav-cta\" href=\"#\">Start a project</a></nav>",
-      "css": ".ds-nav{display:flex;align-items:center;gap:24px;padding:10px 12px 10px 16px;min-height:72px;background:#fff;border:2px solid #0f2b3e;border-radius:14px;box-shadow:1px 1px 0 #0f2b3e,2px 2px 0 #0f2b3e,3px 3px 0 #0f2b3e,4px 4px 0 #0f2b3e,5px 5px 0 #0f2b3e,6px 6px 0 #0f2b3e,7px 7px 0 #0f2b3e,8px 8px 0 #0f2b3e;font-family:Rubik,Arial,sans-serif;color:#0f2b3e}.ds-nav-brand{font-weight:800;font-size:1.25rem;letter-spacing:-.02em;margin-right:auto}.ds-nav a{color:inherit;text-decoration:none;font-weight:500;padding:6px 2px;border-bottom:3px solid transparent}.ds-nav a:hover{border-color:#4ea3b5}.ds-nav .ds-nav-cta{background:#eb5153;color:#fff;font-weight:700;padding:12px 22px;border:2px solid #0f2b3e;border-radius:14px;box-shadow:1px 1px 0 #0f2b3e,2px 2px 0 #0f2b3e,3px 3px 0 #0f2b3e,4px 4px 0 #0f2b3e,5px 5px 0 #0f2b3e,6px 6px 0 #0f2b3e,7px 7px 0 #0f2b3e,8px 8px 0 #0f2b3e}"
+      "name": "Input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Square keyline field on bone, white on hover and focus, cobalt focus ring.",
+      "html": "<label class=\"ds-field\"><span>Email</span><input class=\"ds-input\" type=\"email\" placeholder=\"you@example.com\"></label>",
+      "css": ".ds-field { display: grid; gap: 8px; font-family: Figtree, Arial, sans-serif; font-weight: 700; color: #231f20; } .ds-input { width: 100%; min-height: 52px; padding: 13px 14px; font: inherit; font-weight: 400; font-size: 17px; color: #231f20; background: #f3efe4; border: 2px solid #231f20; border-radius: 0; } .ds-input::placeholder { color: #5a5553; } .ds-input:hover, .ds-input:focus-visible { background: #fffdf8; } .ds-input:focus-visible { outline: 3px solid #2b4cf2; outline-offset: 2px; }"
+    },
+    {
+      "name": "Printed Block",
+      "kind": "custom",
+      "refersTo": "block",
+      "description": "The hero accent: ink type on a coral block with a coral-deep pass. The only place display type sits on color.",
+      "html": "<span class=\"ds-block\">Lines by Nick.</span>",
+      "css": ".ds-block { display: inline-block; padding: 0.04em 0.22em 0.08em; font-family: Unbounded, Arial Black, sans-serif; font-weight: 800; font-size: 56px; letter-spacing: -0.03em; line-height: 1.02; color: #231f20; background: #ff5a3c; border: 2px solid #231f20; border-radius: 3px; box-shadow: 4px 4px 0 #d93c21; }"
     }
   ],
   "narrative": {
-    "northStar": "The Built Letter",
-    "overview": "The LbN mark is three letters built as solid objects. The site is that object continued at page scale: every surface is a slab with a flat saturated face, a 2px navy outline and a hard diagonal navy extrusion. Clean pop: few unmixed colors, big type, generous air, no texture other than the brand's own pattern tile.",
+    "northStar": "The Screen-Print Pull",
+    "overview": "Everything on the page is printed. There is one black keyline layer, and that layer holds two kinds of line: Nick's own handwriting (the logo, the <n> mark, and the hand-drawn code glyphs) and the heavy, uniform outline of isometric objects drawn in the Dave Arcade register. Under the keyline sit saturated flat color passes: coral, cobalt, yellow and mint, each slightly oversized, flooding under the line the way a real pull does. The stock is bone, never pure white.\n\nThe page is laid out like a printed sheet: sections are cells ruled with ink hairlines, corners carry crop ticks, a registration cross marks where a section begins. Color commits at cell scale. A cell is bone, or it is entirely coral, cobalt, yellow or mint.",
     "keyCharacteristics": [
-      "Hard diagonal navy extrusion on every structural slab; no blurred shadows.",
-      "Four unmixed colors carry whole regions.",
-      "One heavy rounded geometric family (Rubik) at every size.",
-      "Rounded-rectangle geometry matched to the letterforms.",
-      "Motion is physical: press, stack, tilt."
+      "One keyline, two hands: thin handwriting for code, heavy outline for objects.",
+      "Four-ink run on bone: coral, cobalt, yellow, mint, used as whole fields.",
+      "Misregistration is the only depth: a flat second-color pass offset 4px, never a blurred shadow.",
+      "Ruled cells, crop ticks and registration marks organise the page like a sheet on the press.",
+      "The brand line is the material: \"Lines of code. Lines of ink. Lines by Nick.\""
     ],
     "rules": [
-      {
-        "name": "The Side Rule",
-        "body": "Depth is a solid navy side, never a blur. Steps 4, 8, 14, 24px.",
-        "section": "elevation"
-      },
-      {
-        "name": "The Whole-Region Rule",
-        "body": "A brand color owns a region or it does not appear.",
-        "section": "colors"
-      },
-      {
-        "name": "The Red Budget Rule",
-        "body": "One primary button per viewport plus at most one red slab per page.",
-        "section": "colors"
-      },
-      {
-        "name": "The No-Eyebrow Rule",
-        "body": "Sections open with their headline; the uppercase label lives inside tags.",
-        "section": "typography"
-      },
-      {
-        "name": "The Press Rule",
-        "body": "Hover moves 2px onto the side; active moves fully onto it.",
-        "section": "elevation"
-      }
+      { "name": "The Whole-Cell Rule", "body": "Color owns a cell or it stays off it. A section is bone or it is one color edge to edge; no tinted backgrounds behind a paragraph, no colored borders as decoration.", "section": "colors" },
+      { "name": "The Two-Pass Rule", "body": "Any element may carry at most two colors: its fill and one offset pass. The third color is always ink.", "section": "colors" },
+      { "name": "The Ink-On-Cobalt Rule", "body": "Cobalt is the only field that takes bone type. Every other field takes ink.", "section": "colors" },
+      { "name": "The One Hand Rule", "body": "Handwriting is Nick's SVGs only. No script or handwritten webfont anywhere.", "section": "typography" },
+      { "name": "The Poster Line Rule", "body": "Display and headline lines never exceed 14 words; wrap by meaning, not by measure.", "section": "typography" },
+      { "name": "The In-Register Rule", "body": "Only buttons, printed blocks and drawings may be out of register. Text is never offset or doubled.", "section": "elevation" },
+      { "name": "The No-Blur Rule", "body": "box-shadow with any blur or spread is a defect. The only legal shadow is a hard offset of a palette color.", "section": "elevation" }
     ],
     "dos": [
-      "Do draw depth as a navy diagonal side at 4 / 8 / 14 / 24px.",
-      "Do let cyan own the hero and navy own the footer.",
-      "Do keep 2px navy outlines on every slab and control.",
-      "Do author visuals from the slab vocabulary and label synthetic samples."
+      "Do use Nick's SVG assets for every piece of handwriting, scaled but never recolored away from ink.",
+      "Do draw new illustrations in the Dave Arcade register: 3px uniform ink outline, flat saturated fills, isometric projection, no gradients, no inner shading.",
+      "Do make a section one color edge to edge, or bone.",
+      "Do keep \"Lines of code. Lines of ink. Lines by Nick.\" as the hero copy and let section copy echo the line.",
+      "Do share one 2px rule between adjacent cells."
     ],
     "donts": [
-      "Don't use blurred shadows, glass, gradients or gradient text.",
-      "Don't put body text in white on red.",
-      "Don't add a fifth hue.",
-      "Don't put an uppercase eyebrow above section headings."
+      "Don't use a blurred shadow, a gradient, glass, or a tinted panel behind text.",
+      "Don't use pastel tints of the inks; a color is at full strength or absent.",
+      "Don't offset or double any text; misregistration belongs to blocks and drawings only.",
+      "Don't reintroduce the extruded lettermark, its cyan/red/navy inks, or Rubik.",
+      "Don't set a handwritten or script webfont; the only hand on the page is Nick's.",
+      "Don't copy Dave Arcade's subjects (arcade cabinets, pixel art) or Plan C's palette; adapt the register and the ruled-sheet grammar through this studio's own objects."
     ]
   }
 }

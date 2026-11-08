@@ -1,10 +1,9 @@
 import type { ReactNode } from "react";
+import { RegMark, Cap } from "./Marks";
 
 /**
- * Inner-page hero: the home hero's grammar at a shorter height.
- * Cyan field over the brick wallpaper, display title with one outlined word,
- * lede, and a slab of page-specific art on the right that stacks under the
- * copy on phones. Shares the home hero's load-in clock (see inner.css).
+ * Inner-page hero: one stream. A bone copy cell and a color cell holding a
+ * printed object, sharing the seam.
  */
 export function PageHero({
   kicker,
@@ -13,33 +12,32 @@ export function PageHero({
   lede,
   actions,
   art,
+  tone = "cobalt",
 }: {
-  kicker?: string;
+  kicker: string;
   title: string;
-  accent?: string;
+  accent: string;
   lede: string;
   actions?: ReactNode;
-  art?: ReactNode;
+  art: ReactNode;
+  tone?: "cobalt" | "coral" | "yellow" | "mint";
 }) {
   return (
-    <section className="phero hero-world" id="top">
-      <div className="container phero__grid">
-        <div className="phero__copy">
-          {kicker && <span className="tag phero__kicker">{kicker}</span>}
+    <>
+      <section className="cell phero" id="top">
+        <RegMark />
+        <Cap>{kicker}</Cap>
+        <div className="cell__head">
           <h1 className="display phero__title">
-            {title}
-            {accent && (
-              <>
-                {" "}
-                <span className="phero__accent">{accent}</span>
-              </>
-            )}
+            {title} <span className="block block--coral phero__accent">{accent}</span>
           </h1>
-          <p className="lede phero__lede">{lede}</p>
+          <p className="lede">{lede}</p>
           {actions && <div className="phero__actions">{actions}</div>}
         </div>
-        {art && <div className="phero__art">{art}</div>}
-      </div>
-    </section>
+      </section>
+      <section className={`cell cell--${tone} phero__art`} aria-hidden="true">
+        <div className="phero__object">{art}</div>
+      </section>
+    </>
   );
 }

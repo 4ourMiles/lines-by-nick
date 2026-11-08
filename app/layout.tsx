@@ -1,43 +1,41 @@
 import type { Metadata, Viewport } from "next";
-import { Rubik } from "next/font/google";
+import { Unbounded, Figtree } from "next/font/google";
 import "./globals.css";
-import "./home.css";
-import "./inner.css";
+import "./print.css";
 
-const rubik = Rubik({
+const unbounded = Unbounded({
   subsets: ["latin"],
-  weight: ["400", "500", "700", "800", "900"],
-  style: ["normal", "italic"],
-  variable: "--font-rubik",
+  weight: ["600", "700", "800"],
+  variable: "--font-unbounded",
+  display: "swap",
+});
+
+const figtree = Figtree({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-figtree",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "LBN Design — Lines by Nick",
+  title: "Lines by Nick — LBN Design",
   description:
-    "Lines of code, lines of ink. LBN Design writes React, React Native, Next.js and Salesforce software and draws the UI, brand, logo and graphics to match. One studio for both halves of your business.",
+    "Lines of code. Lines of ink. One studio that writes the software and draws the brand: web and mobile apps, Salesforce, AI, logos and illustration.",
   metadataBase: new URL("https://lbn.design"),
   openGraph: {
-    title: "LBN Design",
+    title: "Lines by Nick — LBN Design",
     description: "Lines of code. Lines of ink. Lines by Nick.",
-    url: "https://lbn.design",
-    siteName: "LBN Design",
     type: "website",
   },
-  icons: { icon: "/brand/lbn-mark.svg" },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#4ea3b5",
-  width: "device-width",
-  initialScale: 1,
+  themeColor: "#f3efe4",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={rubik.variable}>
+    <html lang="en" className={`${unbounded.variable} ${figtree.variable}`}>
       <body>{children}</body>
     </html>
   );

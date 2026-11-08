@@ -3,12 +3,14 @@ import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Close";
 import { PageHero } from "@/components/PageHero";
 import { BriefForm } from "@/components/BriefForm";
+import { CropTicks, Cap } from "@/components/Marks";
+import { IsoBrief } from "@/components/Iso";
 import { CONTACT_EMAIL } from "@/components/contact";
 
 export const metadata: Metadata = {
-  title: "Start a project — LBN Design",
+  title: "Start a project — Lines by Nick",
   description:
-    "Tell LBN Design what you need building or drawing. A short brief is all it takes to get a plan and a price in writing.",
+    "Tell Lines by Nick what you need building or drawing. A short brief is all it takes to get a plan and a price in writing.",
 };
 
 const STEPS = [
@@ -19,34 +21,25 @@ const STEPS = [
 
 export default function StartAProject() {
   return (
-    <>
-      <Nav />
-      <main>
-        <PageHero
-          kicker="Start a project"
-          title="Tell us what you're"
-          accent="building."
-          lede="A short brief is all it takes. We read every one, come back with questions, then send a plan with the price and timeline in writing."
-          art={
-            <div className="slab slab--xl art art--brief" aria-hidden="true">
-              <span className="tag tag--cyan art__tag">Brief</span>
-              <b className="blk blk--navy blk--tall" style={{ width: "62%" }} />
-              <span className="blk blk--line" style={{ width: "88%" }} />
-              <span className="blk blk--line" style={{ width: "76%" }} />
-              <span className="blk blk--line" style={{ width: "82%" }} />
-              <div className="art__chips">
-                <span className="tag">A website</span>
-                <span className="tag tag--cyan">A brand or logo</span>
-              </div>
-              <b className="blk blk--red art__send" />
-            </div>
-          }
-        />
-
-        <section className="section inner">
-          <div className="container inner__grid">
-            <div className="inner__aside">
-              <h2 className="headline">What happens next.</h2>
+    <div className="sheet-wrap pull">
+      <CropTicks />
+      <div className="sheet">
+        <Nav />
+        <main className="span-2 sheet__main">
+          <div className="row row--2">
+            <PageHero
+              kicker="Start a project"
+              title="Tell us what you're"
+              accent="building."
+              lede="A short brief is all it takes. We read every one, come back with questions, then send a plan with the price and timeline in writing."
+              tone="cobalt"
+              art={<IsoBrief order={0} />}
+            />
+          </div>
+          <div className="row row--aside">
+            <section className="cell aside">
+              <Cap>What happens next</Cap>
+              <h2 className="headline">Three short steps.</h2>
               <ol className="mini-steps">
                 {STEPS.map(([h, t], i) => (
                   <li key={h}>
@@ -60,15 +53,18 @@ export default function StartAProject() {
                   </li>
                 ))}
               </ol>
-              <p className="muted inner__alt">
+              <p className="muted">
                 Prefer email? Write to <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
               </p>
-            </div>
-            <BriefForm variant="brief" />
+            </section>
+            <section className="cell cell--mint">
+              <Cap>The brief</Cap>
+              <BriefForm variant="brief" />
+            </section>
           </div>
-        </section>
-      </main>
-      <Footer />
-    </>
+        </main>
+        <Footer />
+      </div>
+    </div>
   );
 }
