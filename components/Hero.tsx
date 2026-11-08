@@ -48,12 +48,9 @@ export function Hero() {
         <RegMark />
         <Cap>01 / Code</Cap>
         <div className="stream__art">
+          <Glyph name="left-angle" scale={0.7} rot={-8} className="stream__g" />
           <IsoScreens order={1} onField />
-        </div>
-        <div className="stream__scatter" aria-hidden="true">
-          <Glyph name="left-angle" scale={0.9} rot={-8} className="stream__g stream__g--a" />
-          <Glyph name="forward-slash" scale={0.9} rot={4} className="stream__g stream__g--b" />
-          <Glyph name="right-angle" scale={0.9} rot={6} className="stream__g stream__g--c" />
+          <Glyph name="right-angle" scale={0.7} rot={6} className="stream__g" />
         </div>
         <h2 className="headline stream__head">Lines of code.</h2>
         <p className="lede stream__lede">
@@ -66,11 +63,9 @@ export function Hero() {
         <RegMark />
         <Cap>02 / Ink</Cap>
         <div className="stream__art">
+          <Glyph name="ampersand" scale={0.7} rot={6} className="stream__g" />
           <IsoPaint order={0} />
-        </div>
-        <div className="stream__scatter" aria-hidden="true">
-          <Glyph name="ampersand" scale={0.9} rot={6} className="stream__g stream__g--a" />
-          <Glyph name="at" scale={0.9} rot={-6} className="stream__g stream__g--c" />
+          <Glyph name="at" scale={0.7} rot={-6} className="stream__g" />
         </div>
         <h2 className="headline stream__head">Lines of ink.</h2>
         <p className="lede stream__lede">

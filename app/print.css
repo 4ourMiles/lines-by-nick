@@ -185,24 +185,22 @@
 }
 
 .stream__art {
-  width: min(100%, 420px);
-  margin-inline: auto;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
 }
 
-.stream__scatter {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
+.stream__art .iso {
+  width: 100%;
+  height: 220px;
 }
 
+/* the glyphs flank the drawing in their own columns: they can never land on it */
 .stream__g {
-  position: absolute;
   width: calc(var(--w) * 0.55);
 }
-
-.stream__g--a { left: 12px; top: 64px; }
-.stream__g--b { display: none; }
-.stream__g--c { right: 12px; top: 64px; }
 
 .stream__head {
   margin-top: 8px;
@@ -220,26 +218,20 @@
   }
 
   .stream__art {
-    width: min(100%, 440px);
+    gap: 16px;
     height: 320px;
-    margin: 0 auto 8px;
-    display: grid;
-    place-items: center;
+    /* the art row runs into the cell's side padding so the drawing gets the width */
+    width: calc(100% + var(--pad));
+    margin-inline: calc(var(--pad) / -2);
   }
 
   .stream__art .iso {
-    max-height: 100%;
-    width: auto;
-    max-width: 100%;
+    height: 320px;
   }
 
   .stream__g {
     width: var(--w);
   }
-
-  .stream__g--a { left: 5%; top: 18%; }
-  .stream__g--b { display: block; left: 10%; top: 50%; }
-  .stream__g--c { right: 5%; top: 22%; }
 }
 
 /* ---------- service rows ---------- */
