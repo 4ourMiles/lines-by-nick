@@ -481,12 +481,33 @@ button {
 .block--yellow { background: var(--yellow); --pass-color: var(--yellow-deep); }
 .block--mint { background: var(--mint); --pass-color: var(--mint-deep); }
 
-/* ---------- the pull: color passes register onto the keyline ---------- */
+/* ---------- the pull: every cell prints when it enters view ----------
+   html.pull-ready is set by components/Pull.tsx once JS is live; .is-in is
+   added to a .cell the first time it is seen. Without JS nothing is hidden.
+   Beats inside a cell:
+     0.00 a bone sheet squeegees off the color field, left to right
+     0.30 drawings show their keyline; color snaps in, the pass registers
+     0.45 button and block passes extend; glyphs stamp on, 80ms apart */
+
+@keyframes squeegee {
+  from {
+    clip-path: inset(0 0 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 100%);
+  }
+}
+
+@keyframes snap-fill {
+  to {
+    fill-opacity: 1;
+  }
+}
 
 @keyframes register {
   from {
     opacity: 0;
-    translate: -6px -6px;
+    translate: -18px -14px;
   }
   to {
     opacity: 1;
@@ -503,33 +524,92 @@ button {
   }
 }
 
-.pull .iso__ghost {
-  animation: register 0.5s var(--ease-out) both;
-  animation-delay: calc(0.1s + var(--i, 0) * 90ms);
+@keyframes stamp {
+  from {
+    opacity: 0;
+    scale: 1.08;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
 }
 
-.pull .btn,
-.pull .block {
+/* the sheet over a color field, pulled away when the cell is seen */
+.pull-ready .cell--coral::after,
+.pull-ready .cell--cobalt::after,
+.pull-ready .cell--yellow::after,
+.pull-ready .cell--mint::after,
+.pull-ready .cell--ink::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  background: var(--bone);
+  pointer-events: none;
+}
+
+.pull-ready .cell.is-in::after {
+  animation: squeegee 0.55s cubic-bezier(0.7, 0, 0.2, 1) forwards;
+}
+
+/* drawings: keyline first, then the color */
+.pull-ready .iso__print polygon {
+  fill-opacity: 0;
+}
+
+.pull-ready .iso__ghost {
+  opacity: 0;
+}
+
+.pull-ready .is-in .iso__print polygon {
+  animation: snap-fill 0.01s steps(1, end) forwards;
+  animation-delay: calc(0.3s + var(--i, 0) * 80ms);
+}
+
+.pull-ready .is-in .iso__ghost {
+  animation: register 0.5s var(--ease-out) forwards;
+  animation-delay: calc(0.32s + var(--i, 0) * 80ms);
+}
+
+/* controls and blocks: the pass extends */
+.pull-ready .cell:not(.is-in) .btn,
+.pull-ready .cell:not(.is-in) .block {
+  box-shadow: 0 0 0 var(--pass-color);
+}
+
+.pull-ready .is-in .btn,
+.pull-ready .is-in .block {
   animation: register-pass 0.4s var(--ease-out) both;
-  animation-delay: calc(0.3s + var(--i, 0) * 90ms);
+  animation-delay: 0.45s;
 }
 
-.pull .btn:hover,
-.pull .btn:active,
-.pull .btn:disabled,
-.pull .btn[aria-disabled="true"] {
+.pull-ready .is-in .btn:hover,
+.pull-ready .is-in .btn:active,
+.pull-ready .btn:disabled,
+.pull-ready .btn[aria-disabled="true"] {
   animation: none;
 }
+
+/* handwriting stamps on */
+.pull-ready .cell:not(.is-in) .glyph {
+  opacity: 0;
+}
+
+.pull-ready .is-in .glyph {
+  animation: stamp 0.35s var(--ease-out) both;
+  animation-delay: calc(0.4s + var(--g, 0) * 80ms);
+}
+
+.glyph:nth-child(2) { --g: 1; }
+.glyph:nth-child(3) { --g: 2; }
+.glyph:nth-child(4) { --g: 3; }
+.glyph:nth-child(5) { --g: 4; }
+.glyph:nth-child(6) { --g: 5; }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
-  }
-
-  .pull .iso__ghost,
-  .pull .btn,
-  .pull .block {
-    animation: none;
   }
 }
 

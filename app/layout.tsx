@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Unbounded, Figtree } from "next/font/google";
 import "./globals.css";
 import "./print.css";
+import { Pull } from "@/components/Pull";
 
 const unbounded = Unbounded({
   subsets: ["latin"],
@@ -36,7 +37,10 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${unbounded.variable} ${figtree.variable}`}>
-      <body>{children}</body>
+      <body>
+        <Pull />
+        {children}
+      </body>
     </html>
   );
 }

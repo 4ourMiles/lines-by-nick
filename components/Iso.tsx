@@ -115,9 +115,10 @@ function Scene({
       viewBox={`${minX.toFixed(2)} ${minY.toFixed(2)} ${w.toFixed(2)} ${h.toFixed(2)}`}
       aria-hidden="true"
       focusable="false"
+      style={{ "--i": order } as CSSProperties}
     >
-      {/* the color pass, pulled 3px out of register under the whole print */}
-      <g className="iso__ghost" style={{ "--i": order } as CSSProperties}>
+      {/* the color pass, pulled out of register under the whole print */}
+      <g className="iso__ghost">
         {items.map((it, i) =>
           isStroke(it) ? null : <polygon key={i} points={poly(it)} fill={it.fill} />,
         )}

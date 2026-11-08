@@ -238,7 +238,7 @@ An isometric SVG drawing (own component per subject) built from two layers: a gh
 Nick's handwritten code glyphs placed as ink SVG images inside a cell, sized 40 to 160px, rotated up to 12 degrees, never overlapping type. Used as the code stream's texture and as section punctuation; at most five glyphs per cell.
 
 ### Motion
-One authored moment: the pull. On first paint the keyline is present; each drawing's color pass registers onto it, translating from -6px -6px at opacity 0 to its 4px resting offset at opacity 1 over 0.5s with an exponential ease-out, staggered 90ms in reading order (hero objects first, service rows after), while button and block passes extend from 0 to 4px; done within 1.2s. Hover and press on buttons move the pass only. Reduced motion renders everything in register with no animation.
+One authored moment: the pull, run per cell the first time it enters the viewport (components/Pull.tsx adds `pull-ready` to the root once JS is live and `is-in` to each cell; without JS everything is simply printed). Inside a cell: a bone sheet squeegees off the color field left to right (0.55s); drawings show their keyline first, then the color snaps in (no fade) and the pass registers from -18px -14px to its 4px offset (0.5s, staggered 80ms by object); button and block passes extend from 0 to 4px at 0.45s; handwritten glyphs stamp on (scale 1.08 to 1, 0.35s, 80ms apart). Hover and press on buttons move the pass only. Reduced motion: nothing animates, everything is in register.
 
 ## Do's and Don'ts
 
