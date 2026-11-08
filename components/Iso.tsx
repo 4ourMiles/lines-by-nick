@@ -116,18 +116,26 @@ function Scene({
       aria-hidden="true"
       focusable="false"
     >
-      <g className="iso__fill" style={{ "--i": order } as CSSProperties}>
+      {/* the color pass, pulled 3px out of register under the whole print */}
+      <g className="iso__ghost" style={{ "--i": order } as CSSProperties}>
+        {items.map((it, i) =>
+          isStroke(it) ? null : <polygon key={i} points={poly(it)} fill={it.fill} />,
+        )}
+      </g>
+      {/* the print: each face filled and keylined in order, so nearer faces
+          cover the edges behind them */}
+      <g className="iso__print">
         {items.map((it, i) =>
           isStroke(it) ? (
             <line key={i} {...seg(it)} stroke={it.color} strokeWidth={it.width} />
           ) : (
-            <polygon key={i} points={poly(it)} fill={it.fill} />
+            <polygon
+              key={i}
+              points={poly(it)}
+              fill={it.fill}
+              className={it.key === false ? "iso__flat" : undefined}
+            />
           ),
-        )}
-      </g>
-      <g className="iso__key">
-        {items.map((it, i) =>
-          isStroke(it) || it.key === false ? null : <polygon key={i} points={poly(it)} />,
         )}
       </g>
     </svg>
@@ -136,14 +144,18 @@ function Scene({
 
 /* ---------- objects ---------- */
 
-/** Desk with a monitor running code, a phone, a mug. (code stream lead) */
-export function IsoScreens({ order = 0 }: { order?: number }) {
+/** Desk with a monitor running code, a phone, a mug. (code stream lead)
+ *  `onField`: the drawing sits on a cobalt cell, so the monitor body prints
+ *  in bone instead of cobalt and stays legible against the field. */
+export function IsoScreens({ order = 0, onField = false }: { order?: number; onField?: boolean }) {
+  const body = onField ? BONE : COBALT;
+  const bodyD = onField ? BONE_D : COBALT_D;
   const items: Item[] = [
     ...box(0, 0, 0, 160, 110, 8, { top: YELLOW, left: YELLOW_D, right: YELLOW_D }),
     ...box(12, 76, 8, 18, 18, 20, { top: WHITE, left: MINT, right: MINT_D }),
-    ...box(62, 44, 8, 44, 22, 5, { top: COBALT, left: COBALT_D, right: COBALT_D }),
-    ...box(78, 51, 13, 12, 8, 22, { top: COBALT, left: COBALT_D, right: COBALT_D }),
-    ...box(32, 58, 35, 104, 6, 64, { top: COBALT, left: WHITE, right: COBALT_D }),
+    ...box(62, 44, 8, 44, 22, 5, { top: body, left: bodyD, right: bodyD }),
+    ...box(78, 51, 13, 12, 8, 22, { top: body, left: bodyD, right: bodyD }),
+    ...box(32, 58, 35, 104, 6, 64, { top: body, left: WHITE, right: bodyD }),
     // code on the screen: short colored lines, longer bone ones
     line([42, 64, 86], [68, 64, 86], CORAL, 4),
     line([74, 64, 86], [104, 64, 86], COBALT, 4),
@@ -187,6 +199,12 @@ export function IsoPaint({ order = 0 }: { order?: number }) {
     ...box(122, 100, 6, 30, 12, 11, { top: CORAL, left: CORAL, right: CORAL_D }),
   ];
   return <Scene items={items} order={order} />;
+}
+
+/** A single cobalt cube: the code stream's mark when it crosses the seam. */
+export function IsoCube({ order = 0 }: { order?: number }) {
+  const items: Item[] = [...box(0, 0, 0, 30, 30, 30, { top: COBALT, left: COBALT, right: COBALT_D })];
+  return <Scene items={items} order={order} pad={6} />;
 }
 
 /** A phone with a notification. (mobile apps) */

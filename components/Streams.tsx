@@ -1,15 +1,18 @@
 import type { ReactNode } from "react";
 import { Glyph, type GlyphName } from "./Glyph";
 import { Cap } from "./Marks";
-import { IsoScreens, IsoPhone, IsoStack, IsoCubes, IsoCards, IsoPencil, IsoWire, IsoPages } from "./Iso";
+import { IsoScreens, IsoPhone, IsoStack, IsoCubes, IsoCards, IsoPencil, IsoWire, IsoPages, IsoCube } from "./Iso";
 
 type Service = {
   title: string;
   text: string;
   tags: string[];
   art: ReactNode;
-  /** a mark from the other stream: the fold across the seam */
-  fold?: GlyphName;
+  /** the cell commits to one color, or stays bone */
+  tone?: "cobalt" | "coral" | "yellow" | "mint";
+  /** the fold across the seam: the ink stream lends the code side a
+   *  handwritten glyph; the code stream lends the ink side a cobalt cube */
+  fold?: GlyphName | "cube";
 };
 
 /**
@@ -38,6 +41,7 @@ const ROWS: { code: Service; ink: Service }[] = [
       text: "One codebase for iPhone and Android, built to feel native and shipped to both stores.",
       tags: ["React Native", "iOS", "Android"],
       art: <IsoPhone order={3} />,
+      tone: "yellow",
     },
     ink: {
       title: "Illustration",
@@ -59,7 +63,8 @@ const ROWS: { code: Service; ink: Service }[] = [
       text: "Interfaces designed by the people who will build them, so the design is the spec.",
       tags: ["Product design", "Prototypes", "Design systems"],
       art: <IsoWire order={4} />,
-      fold: "right-curley-bracket",
+      tone: "mint",
+      fold: "cube",
     },
   },
   {
@@ -75,26 +80,27 @@ const ROWS: { code: Service; ink: Service }[] = [
       text: "Words you can edit yourself, on pages built so people and search engines find them.",
       tags: ["Headless CMS", "Content", "Technical SEO"],
       art: <IsoPages order={5} />,
-      fold: "semi-colon",
+      tone: "coral",
+      fold: "cube",
     },
   },
 ];
 
 function ServiceCell({ s, side, n }: { s: Service; side: "code" | "ink"; n: string }) {
   return (
-    <section className={`cell service service--${side}`}>
+    <section className={`cell service service--${side}${s.tone ? ` cell--${s.tone}` : ""}`}>
       <Cap>{n}</Cap>
       <div className="service__art">{s.art}</div>
       {s.fold && (
         <div className="service__fold" aria-hidden="true">
-          <Glyph name={s.fold} w={44} rot={side === "code" ? -8 : 8} />
+          {s.fold === "cube" ? <IsoCube order={6} /> : <Glyph name={s.fold} scale={0.5} rot={-8} />}
         </div>
       )}
       <h3 className="title service__title">{s.title}</h3>
       <p className="service__text">{s.text}</p>
       <ul className="tags service__tags" aria-label={`${s.title} tools`}>
         {s.tags.map((t) => (
-          <li key={t} className={`tag ${side === "code" ? "tag--bone" : "tag--white"}`}>
+          <li key={t} className="tag">
             {t}
           </li>
         ))}

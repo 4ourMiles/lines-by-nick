@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { START_HREF, CONTACT_PAGE_HREF } from "./contact";
 
 const LINKS = [
@@ -12,6 +13,7 @@ const LINKS = [
 /** The sheet's top rule: handwritten logo, text links, one coral action. */
 export function Nav() {
   const [open, setOpen] = useState(false);
+  const path = usePathname();
   return (
     <header className="cell cell--tight nav span-2">
       <a className="nav__brand" href="/" aria-label="Lines by Nick, home">
@@ -29,7 +31,12 @@ export function Nav() {
       </button>
       <nav id="site-menu" className="nav__links" data-open={open || undefined} aria-label="Site">
         {LINKS.map((l) => (
-          <a key={l.href} href={l.href} onClick={() => setOpen(false)}>
+          <a
+            key={l.href}
+            href={l.href}
+            aria-current={l.href === path ? "page" : undefined}
+            onClick={() => setOpen(false)}
+          >
             {l.label}
           </a>
         ))}

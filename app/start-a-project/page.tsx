@@ -4,6 +4,7 @@ import { Footer } from "@/components/Close";
 import { PageHero } from "@/components/PageHero";
 import { BriefForm } from "@/components/BriefForm";
 import { CropTicks, Cap } from "@/components/Marks";
+import { Glyph } from "@/components/Glyph";
 import { IsoBrief } from "@/components/Iso";
 import { CONTACT_EMAIL } from "@/components/contact";
 
@@ -29,7 +30,7 @@ export default function StartAProject() {
           <div className="row row--2">
             <PageHero
               kicker="Start a project"
-              title="Tell us what you're"
+              title={"Tell us what\u00a0you're"}
               accent="building."
               lede="A short brief is all it takes. We read every one, come back with questions, then send a plan with the price and timeline in writing."
               tone="cobalt"
@@ -56,6 +57,9 @@ export default function StartAProject() {
               <p className="muted">
                 Prefer email? Write to <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
               </p>
+              <div className="aside__glyph" aria-hidden="true">
+                <Glyph name="semi-colon" scale={0.8} rot={-6} />
+              </div>
             </section>
             <section className="cell cell--mint">
               <Cap>The brief</Cap>

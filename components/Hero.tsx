@@ -35,12 +35,12 @@ export function Hero() {
           </div>
         </div>
         <div className="hero__glyphs" aria-hidden="true">
-          <Glyph name="left-curl-bracket" w={150} rot={-4} className="hero__g hero__g--1" />
-          <Glyph name="semi-colon" w={54} rot={8} className="hero__g hero__g--2" />
-          <Glyph name="star" w={88} rot={-10} className="hero__g hero__g--3" />
-          <Glyph name="equals" w={96} rot={6} className="hero__g hero__g--4" />
-          <Glyph name="right-curley-bracket" w={150} rot={5} className="hero__g hero__g--5" />
-          <Glyph name="cursor" w={46} rot={-6} className="hero__g hero__g--6" />
+          <Glyph name="left-curl-bracket" scale={1.1} rot={-4} className="hero__g hero__g--1" />
+          <Glyph name="semi-colon" scale={1.1} rot={8} className="hero__g hero__g--2" />
+          <Glyph name="star" scale={1.1} rot={-10} className="hero__g hero__g--3" />
+          <Glyph name="equals" scale={1.1} rot={6} className="hero__g hero__g--4" />
+          <Glyph name="right-curley-bracket" scale={1.1} rot={5} className="hero__g hero__g--5" />
+          <Glyph name="plus" scale={1.1} rot={-6} className="hero__g hero__g--6" />
         </div>
       </section>
 
@@ -48,12 +48,12 @@ export function Hero() {
         <RegMark />
         <Cap>01 / Code</Cap>
         <div className="stream__art">
-          <IsoScreens order={1} />
+          <IsoScreens order={1} onField />
         </div>
         <div className="stream__scatter" aria-hidden="true">
-          <Glyph name="left-angle" w={64} rot={-8} className="stream__g stream__g--a" />
-          <Glyph name="forward-slash" w={30} rot={4} className="stream__g stream__g--b" />
-          <Glyph name="right-angle" w={64} rot={6} className="stream__g stream__g--c" />
+          <Glyph name="left-angle" scale={0.9} rot={-8} className="stream__g stream__g--a" />
+          <Glyph name="forward-slash" scale={0.9} rot={4} className="stream__g stream__g--b" />
+          <Glyph name="right-angle" scale={0.9} rot={6} className="stream__g stream__g--c" />
         </div>
         <h2 className="headline stream__head">Lines of code.</h2>
         <p className="lede stream__lede">
@@ -69,8 +69,8 @@ export function Hero() {
           <IsoPaint order={0} />
         </div>
         <div className="stream__scatter" aria-hidden="true">
-          <Glyph name="ampersand" w={72} rot={6} className="stream__g stream__g--a" />
-          <Glyph name="at" w={60} rot={-6} className="stream__g stream__g--c" />
+          <Glyph name="ampersand" scale={0.9} rot={6} className="stream__g stream__g--a" />
+          <Glyph name="at" scale={0.9} rot={-6} className="stream__g stream__g--c" />
         </div>
         <h2 className="headline stream__head">Lines of ink.</h2>
         <p className="lede stream__lede">

@@ -4,6 +4,7 @@ import { Footer } from "@/components/Close";
 import { PageHero } from "@/components/PageHero";
 import { BriefForm } from "@/components/BriefForm";
 import { CropTicks, Cap } from "@/components/Marks";
+import { Glyph } from "@/components/Glyph";
 import { IsoEnvelope } from "@/components/Iso";
 import { CONTACT_EMAIL, START_HREF } from "@/components/contact";
 
@@ -22,7 +23,7 @@ export default function Contact() {
           <div className="row row--2">
             <PageHero
               kicker="Contact"
-              title="Drop us a"
+              title={"Drop\u00a0us\u00a0a"}
               accent="line."
               lede="Questions, a quick idea, or a project you are not sure how to scope yet. Email works, or use the form and we will come back to you."
               tone="coral"
@@ -60,6 +61,9 @@ export default function Contact() {
                   <span>Web and mobile apps, Salesforce, AI, UI/UX, brand and illustration</span>
                 </li>
               </ul>
+              <div className="aside__glyph" aria-hidden="true">
+                <Glyph name="at" scale={0.8} rot={-6} />
+              </div>
             </section>
             <section className="cell cell--mint">
               <Cap>Message</Cap>

@@ -25,9 +25,9 @@ export function Close() {
         </div>
       </div>
       <div className="close__glyphs" aria-hidden="true">
-        <Glyph name="at" w={150} rot={-8} className="close__g close__g--1" />
-        <Glyph name="cursor" w={60} rot={6} className="close__g close__g--2" />
-        <Glyph name="root" w={120} rot={4} className="close__g close__g--3" />
+        <Glyph name="at" scale={1} rot={-8} className="close__g close__g--1" />
+        <Glyph name="up-chevron" scale={1} rot={6} className="close__g close__g--2" />
+        <Glyph name="root" scale={0.9} rot={4} className="close__g close__g--3" />
       </div>
     </section>
   );

@@ -202,7 +202,7 @@ Square by default. Cells, fields and inputs have 0 radius. Buttons, tags and pri
 - **Marks:** optional registration cross at top-left; optional Label caption at top-right ("01 / Code", "02 / Ink").
 
 ### Inputs / Fields
-- **Style:** stock white fill, 2px ink keyline, 0 radius, 14px 16px padding, Figtree 400 at 1.0625rem, Figtree 700 labels above.
+- **Style:** bone fill at rest inside a stock-white form block, turning stock white on hover and focus; 2px ink keyline, 0 radius, 14px 16px padding, Figtree 400 at 1.0625rem, Figtree 700 labels above.
 - **Focus:** keyline stays ink; a 3px cobalt outline offset 2px.
 - **Error:** keyline turns coral-deep, message in coral-deep below the field.
 - **Disabled:** bone-deep fill.
@@ -211,18 +211,18 @@ Square by default. Cells, fields and inputs have 0 radius. Buttons, tags and pri
 - A ruled bar at the top of the sheet: `<lines by nick>` handwritten logo at left (ink SVG, 170px wide), text links in Figtree 700, a coral primary button at right. On phones the links collapse behind a keyline "Menu" button into a full-width ruled sheet. Active link carries a 2px ink underline offset 6px.
 
 ### Printed Object (signature)
-An isometric SVG drawing (own component per subject) built from three layers: a color-pass group offset 4px 4px in a deep variant, a flat fill group, and the ink keyline group on top. On load the pass and fill register onto the keyline (see motion). Drawings are authored in-house and labelled synthetic in code; any may be replaced by Nick's own.
+An isometric SVG drawing (own component per subject) built from two layers: a ghost color pass of every face offset 4px 4px, and the print on top, where each face is filled and keylined in back-to-front order so nearer faces cover the edges behind them (no hidden lines ever show). On load the pass and fill register onto the keyline (see motion). Drawings are authored in-house and labelled synthetic in code; any may be replaced by Nick's own.
 
 ### Glyph Scatter (signature)
 Nick's handwritten code glyphs placed as ink SVG images inside a cell, sized 40 to 160px, rotated up to 12 degrees, never overlapping type. Used as the code stream's texture and as section punctuation; at most five glyphs per cell.
 
 ### Motion
-One authored moment: the pull. On first paint the keyline is present; color passes register onto it in order, coral, cobalt, yellow, mint, each translating from -6px -6px with opacity 0 to 0 0 with opacity 1 over 0.5s with an exponential ease-out, staggered 90ms, done within 1s. Hover and press on buttons move the pass only. Reduced motion renders everything in register with no animation.
+One authored moment: the pull. On first paint the keyline is present; each drawing's color pass registers onto it, translating from -6px -6px at opacity 0 to its 4px resting offset at opacity 1 over 0.5s with an exponential ease-out, staggered 90ms in reading order (hero objects first, service rows after), while button and block passes extend from 0 to 4px; done within 1.2s. Hover and press on buttons move the pass only. Reduced motion renders everything in register with no animation.
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** use Nick's SVG assets for every piece of handwriting, scaled but never recolored away from ink.
+- **Do** use Nick's SVG assets for every piece of handwriting at one magnification per context (the `scale` prop), so the pen weight never changes. On an ink or cobalt field the same drawing is shown inverted to bone; that is the only recoloring allowed.
 - **Do** draw new illustrations in the Dave Arcade register: 3px uniform ink outline, flat saturated fills, isometric projection, no gradients, no inner shading.
 - **Do** make a section one color edge to edge, or bone.
 - **Do** keep "Lines of code. Lines of ink. Lines by Nick." as the hero copy and let section copy echo the line.

@@ -423,7 +423,15 @@ button {
 .tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 6px 8px;
+}
+
+/* on a color field, tags and panels carry an ink pass so they sit on the print */
+.cell--coral .tag,
+.cell--cobalt .tag,
+.cell--yellow .tag,
+.cell--mint .tag {
+  box-shadow: 3px 3px 0 var(--ink);
 }
 
 /* a printed block: keyline + pass, used for panels and the hero accent */
@@ -452,7 +460,7 @@ button {
   }
   to {
     opacity: 1;
-    translate: 3px 3px;
+    translate: var(--pass) var(--pass);
   }
 }
 
@@ -465,7 +473,7 @@ button {
   }
 }
 
-.pull .iso__fill {
+.pull .iso__ghost {
   animation: register 0.5s var(--ease-out) both;
   animation-delay: calc(0.1s + var(--i, 0) * 90ms);
 }
@@ -477,7 +485,9 @@ button {
 }
 
 .pull .btn:hover,
-.pull .btn:active {
+.pull .btn:active,
+.pull .btn:disabled,
+.pull .btn[aria-disabled="true"] {
   animation: none;
 }
 
@@ -486,7 +496,7 @@ button {
     scroll-behavior: auto;
   }
 
-  .pull .iso__fill,
+  .pull .iso__ghost,
   .pull .btn,
   .pull .block {
     animation: none;
@@ -519,22 +529,22 @@ button {
   overflow: visible;
 }
 
-.iso__key {
-  fill: none;
+.iso__ghost {
+  translate: var(--pass) var(--pass);
+}
+
+.iso__print polygon {
   stroke: var(--ink);
   stroke-width: var(--key);
   stroke-linejoin: round;
-  stroke-linecap: round;
 }
 
-.iso__fill {
-  translate: 3px 3px;
+.iso__print .iso__flat {
+  stroke: none;
 }
 
-.iso__fill line,
-.iso__fill path {
+.iso__print line {
   stroke-linecap: round;
-  stroke-linejoin: round;
 }
 
 /* main is a grid participant, not a wrapper */

@@ -3,6 +3,7 @@ import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Close";
 import { PageHero } from "@/components/PageHero";
 import { CropTicks, Cap } from "@/components/Marks";
+import { Glyph } from "@/components/Glyph";
 import { IsoPayCard } from "@/components/Iso";
 import { CONTACT_EMAIL, STRIPE_LINK_READY, STRIPE_PAYMENT_LINK } from "@/components/contact";
 
@@ -57,6 +58,9 @@ export default function Pay() {
                 Bank transfer instead? Email <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>{" "}
                 and we will send details.
               </p>
+              <div className="aside__glyph" aria-hidden="true">
+                <Glyph name="currency" scale={0.8} rot={-6} />
+              </div>
             </section>
             <section className="cell cell--mint">
               <Cap>Secure checkout</Cap>
