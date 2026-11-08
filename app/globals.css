@@ -481,13 +481,33 @@ button {
 .block--yellow { background: var(--yellow); --pass-color: var(--yellow-deep); }
 .block--mint { background: var(--mint); --pass-color: var(--mint-deep); }
 
-/* ---------- the pull: every cell prints when it enters view ----------
-   html.pull-ready is set by components/Pull.tsx once JS is live; .is-in is
-   added to a .cell the first time it is seen. Without JS nothing is hidden.
-   Beats inside a cell:
-     0.00 a bone sheet squeegees off the color field, left to right
-     0.30 drawings show their keyline; color snaps in, the pass registers
-     0.45 button and block passes extend; glyphs stamp on, 80ms apart */
+/* ---------- motion ----------
+   Thesis: one rehearsed print run in the hero; no entrance animation on the
+   service rows; after that, motion answers the visitor's hand. Armed by the
+   inline script in app/layout.tsx (html.pull-ready), fired per cell by
+   components/Pull.tsx (.is-in). Without JS nothing is ever hidden.
+
+   Hero (focal, once):
+     0.00 headline lines wipe on, three passes 120ms apart
+     0.30 the coral block registers under line three
+     0.45 lede and note rise; the button's pass extends
+     0.55 handwriting stamps on, 90ms apart, each settling its tilt
+     then one squeegee stroke runs across both stream cells (code 0-0.5s,
+     ink 0.5-1.0s); keyline drawings wait under the sheet, snap to color,
+     and their pass registers behind the stroke.
+   Service rows: still at rest; hover pulls the print out of register.
+   Merge: the plate stamps, the fact rules draw in.
+   Process: three glyphs write in, in sequence.
+   Close: the glyphs drop like ink onto paper. */
+
+@keyframes wipe-on {
+  from {
+    clip-path: inset(-0.1em 100% -0.2em 0);
+  }
+  to {
+    clip-path: inset(-0.1em -0.3em -0.2em 0);
+  }
+}
 
 @keyframes squeegee {
   from {
@@ -499,6 +519,9 @@ button {
 }
 
 @keyframes snap-fill {
+  from {
+    fill-opacity: 0;
+  }
   to {
     fill-opacity: 1;
   }
@@ -524,10 +547,43 @@ button {
   }
 }
 
+@keyframes rise {
+  from {
+    opacity: 0;
+    translate: 0 10px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
 @keyframes stamp {
   from {
     opacity: 0;
+    scale: 1.12;
+    rotate: calc(var(--rot, 0deg) - 7deg);
+  }
+  60% {
+    opacity: 1;
+    scale: 0.98;
+    rotate: calc(var(--rot, 0deg) + 2deg);
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+    rotate: var(--rot, 0deg);
+  }
+}
+
+@keyframes plate-stamp {
+  from {
+    opacity: 0;
     scale: 1.08;
+  }
+  55% {
+    opacity: 1;
+    scale: 0.985;
   }
   to {
     opacity: 1;
@@ -535,53 +591,75 @@ button {
   }
 }
 
-/* the sheet over a color field, pulled away when the cell is seen */
-.pull-ready .cell--coral::after,
-.pull-ready .cell--cobalt::after,
-.pull-ready .cell--yellow::after,
-.pull-ready .cell--mint::after,
-.pull-ready .cell--ink::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 5;
-  background: var(--bone);
-  pointer-events: none;
+@keyframes draw-rule {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
 }
 
-.pull-ready .cell.is-in::after {
-  animation: squeegee 0.55s cubic-bezier(0.7, 0, 0.2, 1) forwards;
+@keyframes ink-drop {
+  from {
+    opacity: 0;
+    translate: 0 -32px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
 }
 
-/* drawings: keyline first, then the color */
-.pull-ready .iso__print polygon {
-  fill-opacity: 0;
+/* ----- hero: the print run ----- */
+
+.pull-ready .hero:not(.is-in) .hero__line,
+.pull-ready .phero:not(.is-in) .phero__title {
+  clip-path: inset(-0.1em 100% -0.2em 0);
 }
 
-.pull-ready .iso__ghost {
+.pull-ready .hero.is-in .hero__line,
+.pull-ready .phero.is-in .phero__title {
+  animation: wipe-on 0.55s cubic-bezier(0.7, 0, 0.2, 1) both;
+}
+
+.pull-ready .hero.is-in .hero__line:nth-child(2) { animation-delay: 0.12s; }
+.pull-ready .hero.is-in .hero__line:nth-child(3) { animation-delay: 0.24s; }
+
+.pull-ready .hero:not(.is-in) .hero__lede,
+.pull-ready .hero:not(.is-in) .hero__actions,
+.pull-ready .hero:not(.is-in) .hero__note,
+.pull-ready .phero:not(.is-in) .lede,
+.pull-ready .phero:not(.is-in) .phero__actions {
   opacity: 0;
 }
 
-.pull-ready .is-in .iso__print polygon {
-  animation: snap-fill 0.01s steps(1, end) forwards;
-  animation-delay: calc(0.3s + var(--i, 0) * 80ms);
+.pull-ready .hero.is-in .hero__lede,
+.pull-ready .phero.is-in .lede {
+  animation: rise 0.5s var(--ease-out) 0.45s both;
 }
 
-.pull-ready .is-in .iso__ghost {
-  animation: register 0.5s var(--ease-out) forwards;
-  animation-delay: calc(0.32s + var(--i, 0) * 80ms);
+.pull-ready .hero.is-in .hero__actions,
+.pull-ready .phero.is-in .phero__actions {
+  animation: rise 0.5s var(--ease-out) 0.52s both;
 }
 
-/* controls and blocks: the pass extends */
-.pull-ready .cell:not(.is-in) .btn,
-.pull-ready .cell:not(.is-in) .block {
+.pull-ready .hero.is-in .hero__note {
+  animation: rise 0.5s var(--ease-out) 0.6s both;
+}
+
+/* the block under line three and the button register their pass */
+.pull-ready .cell:not(.is-in) .block,
+.pull-ready .cell:not(.is-in) .btn {
   box-shadow: 0 0 0 var(--pass-color);
 }
 
-.pull-ready .is-in .btn,
 .pull-ready .is-in .block {
-  animation: register-pass 0.4s var(--ease-out) both;
-  animation-delay: 0.45s;
+  animation: register-pass 0.4s var(--ease-out) 0.38s both;
+}
+
+.pull-ready .is-in .btn {
+  animation: register-pass 0.4s var(--ease-out) 0.55s both;
 }
 
 .pull-ready .is-in .btn:hover,
@@ -591,14 +669,82 @@ button {
   animation: none;
 }
 
-/* handwriting stamps on */
-.pull-ready .cell:not(.is-in) .glyph {
+/* ----- the squeegee: only where a field is printed as part of a sequence ----- */
+
+.pull-ready .stream::after,
+.pull-ready .phero__art::after,
+.pull-ready .merge::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  background: var(--bone);
+  pointer-events: none;
+}
+
+.pull-ready .stream.is-in::after,
+.pull-ready .phero__art.is-in::after,
+.pull-ready .merge.is-in::after {
+  animation: squeegee 0.5s cubic-bezier(0.45, 0, 0.55, 1) forwards;
+}
+
+/* one continuous stroke across the pair: the ink cell starts where code ends */
+@media (min-width: 900px) {
+  .pull-ready .stream--ink.is-in::after {
+    animation-delay: 0.5s;
+  }
+}
+
+/* drawings under a sheet: keyline first, color snaps, pass registers behind the stroke */
+.pull-ready .stream:not(.is-in) .iso__print polygon,
+.pull-ready .phero__art:not(.is-in) .iso__print polygon {
+  fill-opacity: 0;
+}
+
+.pull-ready .stream:not(.is-in) .iso__ghost,
+.pull-ready .phero__art:not(.is-in) .iso__ghost {
   opacity: 0;
 }
 
-.pull-ready .is-in .glyph {
-  animation: stamp 0.35s var(--ease-out) both;
-  animation-delay: calc(0.4s + var(--g, 0) * 80ms);
+.pull-ready .stream.is-in .iso__print polygon,
+.pull-ready .phero__art.is-in .iso__print polygon {
+  animation: snap-fill 0.01s steps(1, end) 0.28s backwards;
+}
+
+.pull-ready .stream.is-in .iso__ghost,
+.pull-ready .phero__art.is-in .iso__ghost {
+  animation: register 0.5s var(--ease-out) 0.3s backwards;
+}
+
+@media (min-width: 900px) {
+  .pull-ready .stream--ink.is-in .iso__print polygon {
+    animation-delay: 0.78s;
+  }
+
+  .pull-ready .stream--ink.is-in .iso__ghost {
+    animation-delay: 0.8s;
+  }
+}
+
+/* ----- handwriting: stamps with the hand's tilt (hero, streams, asides) ----- */
+
+.pull-ready .hero:not(.is-in) .glyph,
+.pull-ready .stream:not(.is-in) .glyph,
+.pull-ready .aside:not(.is-in) .glyph {
+  opacity: 0;
+}
+
+.pull-ready .hero.is-in .glyph,
+.pull-ready .stream.is-in .glyph,
+.pull-ready .aside.is-in .glyph {
+  animation: stamp 0.42s cubic-bezier(0.2, 0.9, 0.3, 1) both;
+  animation-delay: calc(0.55s + var(--g, 0) * 90ms);
+}
+
+@media (min-width: 900px) {
+  .pull-ready .stream--ink.is-in .glyph {
+    animation-delay: calc(1s + var(--g, 0) * 90ms);
+  }
 }
 
 .glyph:nth-child(2) { --g: 1; }
@@ -606,6 +752,102 @@ button {
 .glyph:nth-child(4) { --g: 3; }
 .glyph:nth-child(5) { --g: 4; }
 .glyph:nth-child(6) { --g: 5; }
+
+/* ----- service rows: still at rest, alive under the pointer ----- */
+
+.service .iso__ghost,
+.service .iso__print,
+.service__art {
+  transition: translate 0.28s var(--ease-out);
+}
+
+@media (hover: hover) {
+  .service:hover .iso__ghost {
+    translate: calc(var(--pass) * 2.5) calc(var(--pass) * 2.25);
+  }
+
+  .service:hover .iso__print {
+    translate: -2px -3px;
+  }
+}
+
+/* the two lead drawings: the pass drifts under the pointer (set by Pull.tsx) */
+.stream__art .iso__ghost {
+  translate: calc(var(--pass) + var(--mx, 0) * 7px) calc(var(--pass) + var(--my, 0) * 6px);
+  transition: translate 0.35s var(--ease-out);
+}
+
+/* ----- merge: the plate stamps, the rules draw ----- */
+
+.pull-ready .merge:not(.is-in) .merge__plate {
+  opacity: 0;
+}
+
+.pull-ready .merge.is-in .merge__plate {
+  animation: plate-stamp 0.5s cubic-bezier(0.2, 0.9, 0.3, 1) 0.45s both;
+}
+
+.facts--row li {
+  position: relative;
+  border-bottom: 0;
+}
+
+.facts--row li::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: var(--rule);
+  background: var(--ink);
+  transform-origin: left;
+}
+
+.pull-ready .merge:not(.is-in) .facts--row li::after {
+  transform: scaleX(0);
+}
+
+.pull-ready .merge.is-in .facts--row li::after {
+  animation: draw-rule 0.45s var(--ease-out) both;
+}
+
+.pull-ready .merge.is-in .facts--row li:nth-child(1)::after { animation-delay: 0.6s; }
+.pull-ready .merge.is-in .facts--row li:nth-child(2)::after { animation-delay: 0.72s; }
+.pull-ready .merge.is-in .facts--row li:nth-child(3)::after { animation-delay: 0.84s; }
+
+/* ----- process: three glyphs write in, in sequence ----- */
+
+.pull-ready .step:not(.is-in) .glyph {
+  opacity: 0;
+}
+
+.pull-ready .step.is-in .glyph {
+  animation: stamp 0.45s cubic-bezier(0.2, 0.9, 0.3, 1) both;
+}
+
+.pull-ready .step:nth-child(1).is-in .glyph { animation-delay: 0.1s; }
+.pull-ready .step:nth-child(2).is-in .glyph { animation-delay: 0.3s; }
+.pull-ready .step:nth-child(3).is-in .glyph { animation-delay: 0.5s; }
+
+/* ----- close: ink drops ----- */
+
+.pull-ready .close:not(.is-in) .glyph {
+  opacity: 0;
+}
+
+.pull-ready .close.is-in .glyph {
+  animation: ink-drop 0.5s cubic-bezier(0.3, 1.2, 0.4, 1) both;
+  animation-delay: calc(0.1s + var(--g, 0) * 140ms);
+}
+
+/* buttons lift as their pass slides out */
+.btn:hover {
+  translate: -1px -1px;
+}
+
+.btn:active {
+  translate: 0 0;
+}
 
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -641,6 +883,7 @@ button {
 
 .iso__ghost {
   translate: var(--pass) var(--pass);
+  opacity: 1;
 }
 
 .iso__print polygon {

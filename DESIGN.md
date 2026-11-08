@@ -238,7 +238,16 @@ An isometric SVG drawing (own component per subject) built from two layers: a gh
 Nick's handwritten code glyphs placed as ink SVG images inside a cell, sized 40 to 160px, rotated up to 12 degrees, never overlapping type. Used as the code stream's texture and as section punctuation; at most five glyphs per cell.
 
 ### Motion
-One authored moment: the pull, run per cell the first time it enters the viewport (components/Pull.tsx adds `pull-ready` to the root once JS is live and `is-in` to each cell; without JS everything is simply printed). Inside a cell: a bone sheet squeegees off the color field left to right (0.55s); drawings show their keyline first, then the color snaps in (no fade) and the pass registers from -18px -14px to its 4px offset (0.5s, staggered 80ms by object); button and block passes extend from 0 to 4px at 0.45s; handwritten glyphs stamp on (scale 1.08 to 1, 0.35s, 80ms apart). Hover and press on buttons move the pass only. Reduced motion: nothing animates, everything is in register.
+One rehearsed print run, then motion that answers the hand. Armed before first paint by an inline script (`html.pull-ready`); fired per cell by components/Pull.tsx (`.is-in`); without JS nothing is hidden; reduced motion never arms.
+
+- **Hero (focal, once):** headline lines wipe on as three screen passes 120ms apart; the coral block registers under line three; lede, note and button follow; the handwriting stamps on with a tilt settle, 90ms apart. Then one squeegee stroke runs across both stream cells (code, then ink, as a single stroke on desktop) with the keyline drawings waiting under the sheet, snapping to color and registering their pass behind it. Inner-page heroes use the same wipe and a single stroke over the art cell.
+- **Service rows:** no entrance animation. Hover pulls the print out of register (pass out to 10px, keyline up 3px); the two lead drawings' passes drift with the mouse position.
+- **Merge:** the squeegee, then the `<n>` plate stamps down and the three fact rules draw in left to right.
+- **Process:** the three glyphs write in, in sequence, with the hand's tilt.
+- **Close:** the glyphs drop in like ink onto paper.
+- **Controls:** hover lifts 1px and extends the pass to 6px; press collapses it.
+
+Never add a reveal to a cell that has nothing to say with it; stillness is part of the rhythm.
 
 ## Do's and Don'ts
 

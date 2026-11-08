@@ -29,7 +29,35 @@ export function Pull() {
       { threshold: 0.15, rootMargin: "0px 0px -8% 0px" },
     );
     cells.forEach((c) => io.observe(c));
-    return () => io.disconnect();
+
+    // the two lead drawings: the color pass drifts under a mouse pointer
+    const arts = Array.from(document.querySelectorAll<HTMLElement>(".stream__art"));
+    const onMove = (e: PointerEvent) => {
+      if (e.pointerType !== "mouse") return;
+      const el = e.currentTarget as HTMLElement;
+      const r = el.getBoundingClientRect();
+      const mx = ((e.clientX - r.left) / r.width) * 2 - 1;
+      const my = ((e.clientY - r.top) / r.height) * 2 - 1;
+      el.style.setProperty("--mx", mx.toFixed(3));
+      el.style.setProperty("--my", my.toFixed(3));
+    };
+    const onLeave = (e: PointerEvent) => {
+      const el = e.currentTarget as HTMLElement;
+      el.style.setProperty("--mx", "0");
+      el.style.setProperty("--my", "0");
+    };
+    arts.forEach((a) => {
+      a.addEventListener("pointermove", onMove);
+      a.addEventListener("pointerleave", onLeave);
+    });
+
+    return () => {
+      io.disconnect();
+      arts.forEach((a) => {
+        a.removeEventListener("pointermove", onMove);
+        a.removeEventListener("pointerleave", onLeave);
+      });
+    };
   }, []);
   return null;
 }
