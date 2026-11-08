@@ -33,7 +33,7 @@ export function Merge() {
             <ul className="facts facts--row" aria-label="How we work">
               <li>
                 <span className="label">Who</span>
-                <span>One person designs and builds it</span>
+                <span>Nick, on both the design and the code</span>
               </li>
               <li>
                 <span className="label">Price</span>

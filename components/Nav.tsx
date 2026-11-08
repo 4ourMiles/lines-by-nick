@@ -16,6 +16,9 @@ export function Nav() {
   const path = usePathname();
   return (
     <header className="cell cell--tight nav span-2">
+      <a className="skip" href="#main">
+        Skip to content
+      </a>
       <a className="nav__brand" href="/" aria-label="Lines by Nick, home">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/ink/logo-primary.svg" alt="" width={172} height={38} />
@@ -34,7 +37,7 @@ export function Nav() {
           <a
             key={l.href}
             href={l.href}
-            aria-current={l.href === path ? "page" : undefined}
+            aria-current={!l.href.includes("#") && l.href === path ? "page" : undefined}
             onClick={() => setOpen(false)}
           >
             {l.label}

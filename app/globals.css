@@ -114,10 +114,14 @@ button {
 .display {
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: clamp(2.5rem, 6.4vw, 5.25rem);
+  font-size: clamp(min(2.5rem, 7.6vw), 5.4vw, 4.75rem);
   line-height: 1.02;
   letter-spacing: -0.03em;
   text-wrap: balance;
+}
+
+.display--sm {
+  font-size: clamp(min(2.25rem, 7vw), 4.6vw, 4rem);
 }
 
 .headline {
@@ -135,6 +139,14 @@ button {
   font-size: 1.125rem;
   line-height: 1.2;
   letter-spacing: -0.01em;
+}
+
+.title--lg {
+  font-size: 1.375rem;
+}
+
+.small {
+  font-size: 0.9375rem;
 }
 
 .lede {
@@ -432,6 +444,24 @@ button {
 .cell--yellow .tag,
 .cell--mint .tag {
   box-shadow: 3px 3px 0 var(--ink);
+}
+
+/* skip link: visible only when focused */
+.skip {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 60;
+  padding: 10px 14px;
+  background: var(--yellow);
+  border: var(--rule) solid var(--ink);
+  font-weight: 700;
+  text-decoration: none;
+  transform: translateY(-200%);
+}
+
+.skip:focus-visible {
+  transform: none;
 }
 
 /* a printed block: keyline + pass, used for panels and the hero accent */

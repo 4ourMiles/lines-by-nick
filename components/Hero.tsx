@@ -1,11 +1,10 @@
 import { Glyph } from "./Glyph";
 import { RegMark, Cap } from "./Marks";
-import { IsoScreens, IsoPaint } from "./Iso";
-import { START_HREF, CONTACT_PAGE_HREF } from "./contact";
+import { START_HREF, CONTACT_EMAIL } from "./contact";
 
 /**
- * Hero: the headline cell across the seam, then the two streams start,
- * a cobalt code cell and a coral ink cell sharing one rule.
+ * Hero: the headline cell across the seam. One action, with the
+ * reassurance a first-timer needs before clicking it.
  */
 export function Hero() {
   return (
@@ -15,8 +14,8 @@ export function Hero() {
         <Cap>00 / Lines</Cap>
         <div className="hero__copy">
           <h1 className="display hero__title">
-            <span className="hero__line">Lines of code.</span>
-            <span className="hero__line">Lines of ink.</span>
+            <span className="hero__line">Lines of code. </span>
+            <span className="hero__line">Lines of ink. </span>
             <span className="hero__line">
               <span className="block block--coral hero__accent">Lines by Nick.</span>
             </span>
@@ -29,10 +28,11 @@ export function Hero() {
             <a href={START_HREF} className="btn btn--primary">
               Start a project
             </a>
-            <a href={CONTACT_PAGE_HREF} className="btn">
-              Contact
-            </a>
           </div>
+          <p className="hero__note">
+            A few lines is enough. You get a plan and a price within a few days, no
+            commitment. Or email <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
+          </p>
         </div>
         <div className="hero__glyphs" aria-hidden="true">
           <Glyph name="left-curl-bracket" scale={1.1} rot={-4} className="hero__g hero__g--1" />
@@ -44,34 +44,6 @@ export function Hero() {
         </div>
       </section>
 
-      <section className="cell cell--cobalt stream" id="code">
-        <RegMark />
-        <Cap>01 / Code</Cap>
-        <div className="stream__art">
-          <Glyph name="left-angle" scale={0.7} rot={-8} className="stream__g" />
-          <IsoScreens order={1} onField />
-          <Glyph name="right-angle" scale={0.7} rot={6} className="stream__g" />
-        </div>
-        <h2 className="headline stream__head">Lines of code.</h2>
-        <p className="lede stream__lede">
-          Web apps, mobile apps, Salesforce, Microsoft and AI, written to run your business and
-          keep running.
-        </p>
-      </section>
-
-      <section className="cell cell--coral stream" id="ink">
-        <RegMark />
-        <Cap>02 / Ink</Cap>
-        <div className="stream__art">
-          <Glyph name="ampersand" scale={0.7} rot={6} className="stream__g" />
-          <IsoPaint order={0} />
-          <Glyph name="at" scale={0.7} rot={-6} className="stream__g" />
-        </div>
-        <h2 className="headline stream__head">Lines of ink.</h2>
-        <p className="lede stream__lede">
-          Logos, brands, illustration and interfaces, drawn so people remember them.
-        </p>
-      </section>
     </>
   );
 }

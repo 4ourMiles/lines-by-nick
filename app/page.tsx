@@ -31,7 +31,7 @@ export default function Home() {
       <CropTicks />
       <div className="sheet">
         <Nav />
-        <main className="span-2 sheet__main">
+        <main id="main" className="span-2 sheet__main">
           <Hero />
           <Streams />
           <Merge />

@@ -18,7 +18,13 @@ colors:
 typography:
   display:
     fontFamily: "Unbounded, Arial Black, sans-serif"
-    fontSize: "clamp(2.5rem, 6.4vw, 5.25rem)"
+    fontSize: "clamp(min(2.5rem, 7.6vw), 5.4vw, 4.75rem)"
+    fontWeight: 800
+    lineHeight: 1.02
+    letterSpacing: "-0.03em"
+  display-sm:
+    fontFamily: "Unbounded, Arial Black, sans-serif"
+    fontSize: "clamp(min(2.25rem, 7vw), 4.6vw, 4rem)"
     fontWeight: 800
     lineHeight: 1.02
     letterSpacing: "-0.03em"
@@ -33,6 +39,11 @@ typography:
     fontSize: "1.125rem"
     fontWeight: 600
     lineHeight: 1.2
+  title-lg:
+    fontFamily: "Unbounded, Arial Black, sans-serif"
+    fontSize: "1.375rem"
+    fontWeight: 600
+    lineHeight: 1.2
   body:
     fontFamily: "Figtree, Helvetica Neue, Arial, sans-serif"
     fontSize: "1.0625rem"
@@ -43,6 +54,11 @@ typography:
     fontSize: "clamp(1.125rem, 1.5vw, 1.375rem)"
     fontWeight: 500
     lineHeight: 1.45
+  small:
+    fontFamily: "Figtree, Helvetica Neue, Arial, sans-serif"
+    fontSize: "0.9375rem"
+    fontWeight: 400
+    lineHeight: 1.5
   label:
     fontFamily: "Figtree, Helvetica Neue, Arial, sans-serif"
     fontSize: "0.8125rem"
@@ -146,11 +162,14 @@ A four-ink run plus black and stock: every color is flat, saturated and used as 
 **Character:** Unbounded is a wide, heavy geometric grotesk with round terminals; set tight and black it reads like poster lettering pulled through a screen, which lets Nick's loose handwriting stay the only hand on the page. Figtree is a plain, sturdy humanist sans that disappears into running text and forms.
 
 ### Hierarchy
-- **Display** (800, clamp(2.5rem, 6.4vw, 5.25rem), 1.02): the hero's three lines and nothing else. Letter-spacing -0.03em. Balanced wrapping.
+- **Display** (800, clamp(min(2.5rem, 7.6vw), 5.4vw, 4.75rem), 1.02): the hero's three lines and nothing else; the inner min() keeps all three lines whole on phones. Letter-spacing -0.03em.
+- **Display small** (800, clamp(min(2.25rem, 7vw), 4.6vw, 4rem), 1.02): the close and inner-page heroes; always below the hero.
 - **Headline** (700, clamp(1.75rem, 3.4vw, 2.75rem), 1.08): section titles inside cells.
-- **Title** (600, 1.125rem, 1.2): service names, process step names, form section names.
+- **Title** (600, 1.125rem, 1.2): process step names, form section names, phone service names.
+- **Title large** (600, 1.375rem, 1.2): service names on desktop.
 - **Lede** (Figtree 500, clamp(1.125rem, 1.5vw, 1.375rem), 1.45): the sentence under a headline, max 30em.
 - **Body** (Figtree 400, 1.0625rem, 1.55): running text, 65ch max.
+- **Small** (Figtree 400, 0.9375rem, 1.5): form notes, setup notes, the phone menu button.
 - **Label** (Figtree 700, 0.8125rem, 0.08em, uppercase): tags, kicker labels, registration captions, table heads.
 
 ### Named Rules
@@ -163,6 +182,8 @@ A four-ink run plus black and stock: every color is flat, saturated and used as 
 The page is a sheet. A single centred column (max 1240px, 24px gutters, 48px from 900px up) is ruled as a grid of cells with 2px ink rules; adjacent cells share one rule, so the page reads as a ruled sheet rather than a stack of cards. Crop ticks (two 2px ink strokes, 14px long) sit outside the sheet's four corners at desktop widths; a registration cross (a 20px circle with crosshair, 2px ink) marks the top-left of each major section.
 
 The home page is staged as two streams meeting: from the hero down, a code column and an ink column run side by side with one shared rule as the seam between them. Rows pair one code cell with one ink cell. Items begin to cross the seam (a brand object appears on the code side, a glyph on the ink side), and the page then admits a single full-width measure for the merged content: one studio, the process, the close. Inner pages take one stream each: a hero cell pair (copy + printed object), then a two-cell body (aside + form or panel).
+
+The service stacks on the home page are plain Label lines ("React · Next.js · TypeScript"), never chips; chips are reserved for interactive choices in forms.
 
 Spacing steps: 8, 16, 24, 48, 96. Cells pad 48px on desktop and 24px on phones. More space above a headline than below it (48 over, 16 under). Below 900px the two streams stack: code cells first, then ink cells, each row keeping its pair adjacent; crop ticks are dropped and rules go to 2px throughout.
 

@@ -28,7 +28,7 @@ export function PageHero({
         <RegMark />
         <Cap>{kicker}</Cap>
         <div className="cell__head">
-          <h1 className="display phero__title">
+          <h1 className="display display--sm phero__title">
             {title} <span className="block block--coral phero__accent">{accent}</span>
           </h1>
           <p className="lede">{lede}</p>

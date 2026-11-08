@@ -23,7 +23,6 @@
 .nav__menu {
   min-height: 44px;
   padding: 10px 18px;
-  font-size: 0.9375rem;
 }
 
 .nav__links {
@@ -59,7 +58,6 @@
   justify-self: start;
   min-height: 48px;
   padding: 12px 22px;
-  font-size: 1rem;
 }
 
 @media (min-width: 900px) {
@@ -86,8 +84,15 @@
   overflow: clip;
 }
 
-.hero__title {
-  font-size: min(2.5rem, 7.6vw);
+.hero__note {
+  max-width: 34em;
+  margin-top: 4px;
+}
+
+.hero__note a {
+  font-weight: 700;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
 }
 
 .hero__copy {
@@ -150,10 +155,6 @@
     max-width: 64%;
   }
 
-  .hero__title {
-    font-size: clamp(2.5rem, 4.6vw, 4rem);
-  }
-
   .hero__glyphs {
     top: 0;
     bottom: 0;
@@ -175,7 +176,32 @@
   .hero__g--6 { left: 2%; bottom: 4%; }
 }
 
-/* the two streams start: object, scattered glyphs, line of copy */
+/* the streams: one grid, code column and ink column down a shared seam */
+
+.streams {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--rule);
+  background: var(--ink);
+  min-width: 0;
+}
+
+@media (min-width: 900px) {
+  .streams {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-auto-flow: row dense;
+  }
+
+  .stream--code,
+  .service--code {
+    grid-column: 1;
+  }
+
+  .stream--ink,
+  .service--ink {
+    grid-column: 2;
+  }
+}
 
 .stream {
   display: grid;
@@ -252,22 +278,19 @@
 }
 
 .service__fold {
-  position: absolute;
-  top: 44px;
-  right: var(--pad);
-  width: 40px;
-}
-
-.service__title {
-  font-size: 1.375rem;
+  /* the fold across the seam only means something when there is a seam */
+  display: none;
 }
 
 .service__text {
   max-width: 44ch;
 }
 
-.service__tags {
-  margin-top: 6px;
+.service__stack {
+  margin-top: 4px;
+  opacity: 0.85;
+  line-height: 1.5;
+  white-space: normal;
 }
 
 @media (min-width: 900px) {
@@ -285,7 +308,8 @@
   }
 
   .service__fold {
-    top: auto;
+    display: block;
+    position: absolute;
     bottom: 32px;
     right: 32px;
     width: 56px;
@@ -346,22 +370,48 @@
 
 .step {
   display: grid;
-  gap: 12px;
-  align-content: start;
-  padding-top: 56px;
-  min-height: 300px;
+  grid-template-columns: 56px minmax(0, 1fr);
+  column-gap: 16px;
+  row-gap: 6px;
+  align-items: start;
+  padding: 52px var(--pad) 24px;
   overflow: clip;
 }
 
 .step__glyph {
-  height: 168px;
+  grid-row: 1 / span 2;
   display: flex;
-  align-items: flex-end;
-  margin-bottom: 8px;
+  justify-content: center;
+}
+
+.step__glyph .glyph {
+  width: calc(var(--w) * 0.45);
 }
 
 .step .title {
-  font-size: 1.25rem;
+  font-size: 1.125rem;
+}
+
+@media (min-width: 900px) {
+  .step {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+    align-content: start;
+    padding: 56px var(--pad) var(--pad);
+    min-height: 300px;
+  }
+
+  .step__glyph {
+    grid-row: auto;
+    height: 168px;
+    align-items: flex-end;
+    justify-content: flex-start;
+    margin-bottom: 8px;
+  }
+
+  .step__glyph .glyph {
+    width: var(--w);
+  }
 }
 
 /* ---------- close + footer ---------- */
@@ -379,8 +429,14 @@
   justify-items: start;
 }
 
-.close__head {
-  font-size: clamp(2.25rem, 5.6vw, 4.5rem);
+.close__alt {
+  margin-top: 4px;
+}
+
+.close__alt a {
+  font-weight: 700;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
 }
 
 .close__glyphs {
@@ -464,15 +520,21 @@
   opacity: 0.85;
 }
 
+.form__note,
+.pay__setup,
+.nav__menu {
+  font-size: 0.9375rem;
+}
+
 .legal__grid {
   display: grid;
   gap: 6px;
   padding-top: 20px;
-  border-top: 1px solid rgba(243, 239, 228, 0.35);
+  border-top: var(--rule) solid rgba(243, 239, 228, 0.3);
 }
 
 .legal__policy {
-  max-width: 90ch;
+  max-width: 72ch;
 }
 
 .legal__copy {
@@ -491,10 +553,6 @@
 
 .phero {
   padding-block: 64px 56px;
-}
-
-.phero__title {
-  font-size: clamp(2.25rem, 5vw, 4rem);
 }
 
 .phero__accent {
@@ -541,10 +599,6 @@
     margin-top: auto;
     padding-top: 32px;
   }
-}
-
-.aside .headline {
-  font-size: clamp(1.625rem, 2.6vw, 2.25rem);
 }
 
 .aside a {
@@ -623,7 +677,6 @@
 .field label,
 .field legend {
   font-weight: 700;
-  font-size: 1rem;
 }
 
 .field__opt {
@@ -707,17 +760,12 @@
 }
 
 .form__note {
-  font-size: 0.9375rem;
   max-width: 60ch;
 }
 
 .form--sent {
   gap: 14px;
   justify-items: start;
-}
-
-.form__sent-head {
-  font-size: clamp(1.75rem, 3vw, 2.5rem);
 }
 
 .form__sent-text {
@@ -746,17 +794,9 @@
   box-shadow: var(--pass) var(--pass) 0 var(--ink);
 }
 
-.pay__head {
-  font-size: clamp(1.625rem, 2.8vw, 2.25rem);
-}
-
 .pay__text,
 .pay__setup {
   max-width: 44ch;
-}
-
-.pay__setup {
-  font-size: 0.9375rem;
 }
 
 .pay__btn {

@@ -10,19 +10,19 @@ export function Close() {
       <RegMark />
       <Cap>04 / Drop us a line</Cap>
       <div className="close__copy">
-        <h2 className="display close__head">Drop us a line.</h2>
+        <h2 className="display display--sm close__head">Drop us a line.</h2>
         <p className="lede">
-          Tell us what you are building or what needs drawing. We reply within a couple of
-          working days with questions, then a plan and a price.
+          Tell us what you are building or what needs drawing. We reply within two working
+          days with questions, then a plan and a price.
         </p>
         <div className="close__actions">
           <a href={START_HREF} className="btn btn--primary">
             Start a project
           </a>
-          <a href={`mailto:${CONTACT_EMAIL}`} className="btn">
-            {CONTACT_EMAIL}
-          </a>
         </div>
+        <p className="close__alt">
+          Prefer email? <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+        </p>
       </div>
       <div className="close__glyphs" aria-hidden="true">
         <Glyph name="at" scale={1} rot={-8} className="close__g close__g--1" />

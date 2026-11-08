@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { Glyph, type GlyphName } from "./Glyph";
-import { Cap } from "./Marks";
-import { IsoScreens, IsoPhone, IsoStack, IsoCubes, IsoCards, IsoPencil, IsoWire, IsoPages, IsoCube } from "./Iso";
+import { Cap, RegMark } from "./Marks";
+import { IsoScreens, IsoPaint, IsoPhone, IsoStack, IsoCubes, IsoCards, IsoPencil, IsoWire, IsoPages, IsoCube } from "./Iso";
 
 type Service = {
   title: string;
@@ -96,28 +96,50 @@ function ServiceCell({ s, side, n }: { s: Service; side: "code" | "ink"; n: stri
           {s.fold === "cube" ? <IsoCube order={6} /> : <Glyph name={s.fold} scale={0.5} rot={-8} />}
         </div>
       )}
-      <h3 className="title service__title">{s.title}</h3>
+      <h3 className="title title--lg service__title">{s.title}</h3>
       <p className="service__text">{s.text}</p>
-      <ul className="tags service__tags" aria-label={`${s.title} tools`}>
-        {s.tags.map((t) => (
-          <li key={t} className="tag">
-            {t}
-          </li>
-        ))}
-      </ul>
+      <p className="label service__stack">{s.tags.join(" · ")}</p>
     </section>
   );
 }
 
+function StreamIntro({ side }: { side: "code" | "ink" }) {
+  const code = side === "code";
+  return (
+    <section className={`cell stream stream--${side} ${code ? "cell--cobalt" : "cell--coral"}`} id={side}>
+      <RegMark />
+      <Cap>{code ? "01 / Code" : "02 / Ink"}</Cap>
+      <div className="stream__art">
+        <Glyph name={code ? "left-angle" : "ampersand"} scale={0.7} rot={code ? -8 : 6} className="stream__g" />
+        {code ? <IsoScreens order={1} onField /> : <IsoPaint order={0} />}
+        <Glyph name={code ? "right-angle" : "at"} scale={0.7} rot={code ? 6 : -6} className="stream__g" />
+      </div>
+      <h2 className="headline stream__head">{code ? "What we build." : "What we draw."}</h2>
+      <p className="lede stream__lede">
+        {code
+          ? "Software your business runs on, written to keep running after launch."
+          : "The marks, pictures and interfaces people remember you by."}
+      </p>
+    </section>
+  );
+}
+
+/**
+ * Desktop: two columns down one seam, each led by its stream cell, rows
+ * paired. Phone: the whole code stream, then the whole ink stream, each
+ * under its own header, so the two-stream idea survives the stack.
+ */
 export function Streams() {
   return (
-    <>
+    <div className="streams span-2">
+      <StreamIntro side="code" />
       {ROWS.map((r, i) => (
-        <div className="row row--2 span-2" key={r.code.title}>
-          <ServiceCell s={r.code} side="code" n={`01.${i + 1}`} />
-          <ServiceCell s={r.ink} side="ink" n={`02.${i + 1}`} />
-        </div>
+        <ServiceCell key={r.code.title} s={r.code} side="code" n={`Code ${i + 1} / 4`} />
       ))}
-    </>
+      <StreamIntro side="ink" />
+      {ROWS.map((r, i) => (
+        <ServiceCell key={r.ink.title} s={r.ink} side="ink" n={`Ink ${i + 1} / 4`} />
+      ))}
+    </div>
   );
 }

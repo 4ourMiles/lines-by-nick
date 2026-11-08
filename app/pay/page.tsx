@@ -26,7 +26,7 @@ export default function Pay() {
       <CropTicks />
       <div className="sheet">
         <Nav />
-        <main className="span-2 sheet__main">
+        <main id="main" className="span-2 sheet__main">
           <div className="row row--2">
             <PageHero
               kicker="Payments"
